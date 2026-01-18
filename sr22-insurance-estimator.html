@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- SEO Meta Tags -->
+    <title>SR-22 Insurance Cost Estimator (US) | AutoSureEstimator</title>
+    <meta name="description" content="Calculate the estimated cost of SR-22 insurance filings and associated high-risk premium increases. Understand SR-22 requirements by state and violation type.">
+    <meta name="keywords" content="SR-22 insurance cost, SR22 calculator, DUI insurance cost, certificate of financial responsibility, high risk auto insurance">
+    <link rel="canonical" href="https://www.autosureestimator.com/sr22-insurance-estimator.html">
+    
+    <!-- OpenGraph Tags -->
+    <meta property="og:title" content="SR-22 Insurance Estimator">
+    <meta property="og:description" content="Estimate the monthly cost impact of an SR-22 requirement. Free, independent tool for US drivers.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.autosureestimator.com/sr22-insurance-estimator.html">
+    <meta property="og:site_name" content="AutoSureEstimator">
+
+    <style>
+        /* --- CSS VARIABLES & RESET (Matched to Homepage) --- */
+        :root {
+            --primary-color: #0f172a;
+            --secondary-color: #3b82f6;
+            --accent-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --text-main: #334155;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --border-color: #e2e8f0;
+            --radius: 8px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-white);
+        }
+        a { text-decoration: none; color: inherit; transition: color 0.2s; }
+        ul { list-style: none; }
+        img, svg { display: block; max-width: 100%; }
+
+        /* --- LAYOUT UTILITIES --- */
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section-padding { padding: 60px 0; }
+        .text-center { text-align: center; }
+        .mt-4 { margin-top: 1.5rem; }
+        .mb-4 { margin-bottom: 1.5rem; }
+
+        /* --- NAVIGATION --- */
+        header {
+            background-color: var(--bg-white);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 70px; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary-color); letter-spacing: -0.5px; }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-weight: 500; color: var(--text-main); }
+        .nav-links a:hover { color: var(--secondary-color); }
+        @media (max-width: 768px) { .nav-links { display: none; } }
+
+        /* --- SR22 PAGE SPECIFIC STYLES --- */
+        
+        .page-header { background-color: var(--bg-light); padding: 60px 0 40px; text-align: center; }
+        .page-header h1 { font-size: 2.25rem; color: var(--primary-color); margin-bottom: 15px; }
+        .page-header p { max-width: 700px; margin: 0 auto; color: var(--text-light); }
+
+        .disclaimer-box {
+            background-color: #fff;
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--warning-color);
+            padding: 15px 20px;
+            margin: 30px auto 0;
+            max-width: 800px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-align: left;
+        }
+
+        /* Calculator Layout */
+        .calc-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .calc-form {
+            background: white;
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .form-group { margin-bottom: 20px; }
+        .form-label { display: block; font-weight: 600; margin-bottom: 8px; color: var(--primary-color); }
+        
+        .form-select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            background-color: #fff;
+            transition: border-color 0.2s;
+        }
+        .form-select:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .btn-calc {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-calc:hover { background-color: #2563eb; }
+
+        /* Results Box */
+        .result-box {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px;
+            border-radius: var(--radius);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            display: none; /* Hidden by default */
+        }
+        
+        .result-box.active { display: flex; animation: fadeIn 0.5s ease; }
+
+        .result-row {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .result-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+        .result-label { font-size: 0.9rem; color: #94a3b8; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
+        .result-amount { font-size: 2.5rem; font-weight: 800; color: #fff; line-height: 1.1; }
+        .result-amount.danger { color: var(--danger-color); } /* Red for the "Extra" cost */
+        
+        .result-sub { font-size: 0.9rem; color: #cbd5e1; margin-top: 5px; }
+
+        .result-placeholder {
+            background-color: var(--bg-light);
+            border: 2px dashed var(--border-color);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 40px;
+            min-height: 300px;
+        }
+
+        /* Educational Sections */
+        .content-block { margin-bottom: 30px; }
+        .content-block h2 { color: var(--primary-color); margin-bottom: 15px; font-size: 1.75rem; }
+        .content-block h3 { font-size: 1.25rem; margin-bottom: 10px; color: var(--text-main); }
+        .content-block ul { list-style: disc; padding-left: 20px; color: var(--text-main); }
+        .content-block li { margin-bottom: 10px; }
+
+        .info-card {
+            background-color: #fff;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: var(--radius);
+            margin-bottom: 20px;
+        }
+        .info-card h4 { color: var(--secondary-color); margin-bottom: 10px; }
+
+        /* FAQ */
+        details { border-bottom: 1px solid var(--border-color); padding: 15px 0; }
+        details summary { font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; list-style: none; }
+        details summary::after { content: "+"; font-size: 1.5rem; color: var(--text-light); }
+        details[open] summary::after { content: "-"; }
+        details p { margin-top: 10px; color: var(--text-light); }
+
+        /* Footer */
+        footer { background-color: var(--primary-color); color: #cbd5e1; padding: 60px 0 30px; margin-top: 60px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { color: white; margin-bottom: 20px; }
+        .copyright { text-align: center; padding-top: 30px; border-top: 1px solid #334155; font-size: 0.9rem; }
+
+        @media (max-width: 900px) {
+            .calc-container { grid-template-columns: 1fr; }
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">AutoSureEstimator</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#tools">Tools</a></li>
+                    <li><a href="index.html#how-it-works">How It Works</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>SR-22 Insurance Estimator</h1>
+                <p>Understand the costs associated with an SR-22 "Certificate of Financial Responsibility." Calculate potential premium increases based on your violation.</p>
+                <div class="disclaimer-box">
+                    <strong>Important:</strong> An SR-22 is not a type of insurance policy; it is a document your insurer files with the state to prove you have coverage. The costs shown here reflect the <em>increase</em> in premiums due to the violation that triggered the requirement.
+                </div>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="container mb-4">
+            <div class="calc-container">
+                
+                <!-- Input Form -->
+                <form id="sr22Form" class="calc-form" onsubmit="calculateSR22(event)">
+                    
+                    <div class="form-group">
+                        <label class="form-label">State of Residence</label>
+                        <select id="state" class="form-select" required>
+                            <option value="" disabled selected>Select your state...</option>
+                            <option value="1.0">National Average / Other</option>
+                            <option value="0.85">Ohio</option>
+                            <option value="1.3">Texas</option>
+                            <option value="1.4">California</option>
+                            <option value="1.5">New York</option>
+                            <option value="1.6">Florida</option>
+                            <option value="1.1">Georgia</option>
+                            <option value="0.9">Virginia</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Reason for SR-22 Requirement</label>
+                        <select id="reason" class="form-select" required>
+                            <option value="" disabled selected>Select the violation...</option>
+                            <option value="2.5">DUI / DWI Conviction (Highest Impact)</option>
+                            <option value="1.5">Driving Without Insurance</option>
+                            <option value="1.8">Suspended / Revoked License</option>
+                            <option value="1.6">Too Many At-Fault Accidents</option>
+                            <option value="1.4">Administrative Requirement / Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Driver Age Range</label>
+                        <select id="age" class="form-select" required>
+                            <option value="1.8">Under 25 (High Risk)</option>
+                            <option value="1.2">25 – 34</option>
+                            <option value="1.0" selected>35 – 49</option>
+                            <option value="0.95">50 – 64</option>
+                            <option value="1.1">65+</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Coverage Level Required</label>
+                        <select id="coverage" class="form-select" required>
+                            <option value="0.7">State Minimum Liability (Cheapest)</option>
+                            <option value="1.0" selected>Standard (Liability + Comp/Coll)</option>
+                            <option value="1.4">Full Coverage (High Limits)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-calc">Estimate SR-22 Impact</button>
+                </form>
+
+                <!-- Results Area -->
+                <div>
+                    <div id="resultPlaceholder" class="result-placeholder">
+                        <p>Select your violation reason and state to see the estimated financial impact.</p>
+                    </div>
+
+                    <div id="resultBox" class="result-box">
+                        <div class="result-row">
+                            <div class="result-label">Estimated Monthly Increase</div>
+                            <div class="result-amount danger" id="extraCost">$0 - $0</div>
+                            <div class="result-sub">Extra cost purely due to violation</div>
+                        </div>
+
+                        <div class="result-row">
+                            <div class="result-label">Total Estimated Monthly Premium</div>
+                            <div class="result-amount" id="totalCost">$0 - $0</div>
+                            <div class="result-sub">Includes base rate + high-risk surcharge</div>
+                        </div>
+
+                        <div class="result-row" style="border:none">
+                            <div class="result-label">One-Time Filing Fee</div>
+                            <div class="result-amount" style="font-size: 1.5rem;">$15 - $50</div>
+                            <div class="result-sub">Charged by carrier to file paperwork</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Educational Content -->
+        <section class="section-padding container">
+            
+            <div class="content-block">
+                <h2>SR-22 Filing Fees and Timelines</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                    <div class="info-card">
+                        <h4>The Filing Fee</h4>
+                        <p>Insurance companies typically charge a one-time fee of <strong>$15 to $50</strong> to file the SR-22 document with your state's DMV. This is separate from your premium.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>How Long Does It Last?</h4>
+                        <p>In most states, you must maintain the SR-22 on file for <strong>3 years</strong>. If your policy lapses during this time, the insurer is legally required to notify the DMV, which usually results in immediate license suspension.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Non-Owner SR-22</h4>
+                        <p>If you need to reinstate your license but do not own a car, you can purchase a "Non-Owner SR-22 Policy." This provides liability coverage for any car you drive and satisfies the state requirement, often at a lower cost.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h2>Methodology</h2>
+                <p>Our SR-22 estimator calculates a "Standard" base premium for your age and location, then applies a "High-Risk Multiplier" based on the violation type selected (e.g., a DUI typically triggers a 100-200% rate increase). The "Extra Monthly Cost" displayed is the difference between a standard driver's rate and the high-risk rate.</p>
+            </div>
+
+            <div class="content-block">
+                <h2>Frequently Asked Questions</h2>
+                <details>
+                    <summary>What is an SR-22?</summary>
+                    <p>It is not insurance. It is a certificate (form) your insurance company files with the state to verify that you have the minimum required liability insurance. It is usually required after serious traffic violations.</p>
+                </details>
+                <details>
+                    <summary>What is an FR-44?</summary>
+                    <p>Florida and Virginia use a form called FR-44 for DUI/DWI convictions. The FR-44 requirement usually mandates much higher liability limits (e.g., 100/300/50) than a standard SR-22, making it significantly more expensive.</p>
+                </details>
+                <details>
+                    <summary>Can I hide my SR-22 status from my insurance company?</summary>
+                    <p>No. You cannot file it yourself. Your insurance carrier must file it for you. This alerts them to your driving record, which causes them to re-evaluate your rate.</p>
+                </details>
+                <details>
+                    <summary>What happens if I stop paying my insurance?</summary>
+                    <p>The insurance company sends an SR-26 form to the state DMV, notifying them that your coverage has lapsed. Your license will likely be suspended again immediately.</p>
+                </details>
+                <details>
+                    <summary>Do all companies offer SR-22 filings?</summary>
+                    <p>No. Some "preferred" carriers (like USAA or Amica) may decline to cover high-risk drivers. You may need to shop with carriers that specialize in high-risk policies, such as The General, Progressive, or specialized local brokers.</p>
+                </details>
+                <details>
+                    <summary>Does the SR-22 requirement expire?</summary>
+                    <p>Yes. Typically after 3 years of continuous coverage (statutes vary by state). Once the period ends, you can call your insurer to remove the filing, and your rates should eventually decrease.</p>
+                </details>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>AutoSureEstimator</h4>
+                    <p style="font-size: 0.9rem; color: #94a3b8;">Empowering US drivers with transparent, data-driven insurance cost insights.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 AutoSureEstimator. All rights reserved. <br>Disclaimer: This website is for informational purposes only and does not provide financial advice.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Calculation Logic -->
+    <script>
+        function calculateSR22(e) {
+            e.preventDefault();
+
+            // 1. Get Values
+            const stateFactor = parseFloat(document.getElementById('state').value);
+            const reasonFactor = parseFloat(document.getElementById('reason').value);
+            const ageFactor = parseFloat(document.getElementById('age').value);
+            const coverageFactor = parseFloat(document.getElementById('coverage').value);
+
+            // 2. Base Rate (Annual average approx $1400 baseline for standard driver)
+            let baseRate = 1400;
+
+            // 3. Calculate "Clean" Rate (Standard driver profile without the violation)
+            // We assume a standard multiplier of 1.0 for the 'reason' if they were clean
+            let cleanAnnual = baseRate * stateFactor * ageFactor * coverageFactor;
+
+            // 4. Calculate "SR-22" Rate (With the violation multiplier)
+            let sr22Annual = baseRate * stateFactor * ageFactor * coverageFactor * reasonFactor;
+
+            // 5. Calculate Deltas
+            let extraAnnual = sr22Annual - cleanAnnual;
+            
+            // Create Ranges (+/- 15%)
+            let totalLow = sr22Annual * 0.85;
+            let totalHigh = sr22Annual * 1.15;
+            
+            let extraLow = extraAnnual * 0.85;
+            let extraHigh = extraAnnual * 1.15;
+
+            // Monthly
+            let totalLowMo = totalLow / 12;
+            let totalHighMo = totalHigh / 12;
+            let extraLowMo = extraLow / 12;
+            let extraHighMo = extraHigh / 12;
+
+            // 6. Formatting
+            const formatCurrency = (num) => {
+                return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(num);
+            };
+
+            // 7. Update DOM
+            document.getElementById('extraCost').innerText = `+${formatCurrency(extraLowMo)} - ${formatCurrency(extraHighMo)}`;
+            document.getElementById('totalCost').innerText = `${formatCurrency(totalLowMo)} - ${formatCurrency(totalHighMo)}`;
+
+            // 8. Show Result Box / Hide Placeholder
+            document.getElementById('resultPlaceholder').style.display = 'none';
+            const resultBox = document.getElementById('resultBox');
+            resultBox.style.display = 'flex';
+            resultBox.classList.add('active');
+            
+            if(window.innerWidth < 900) {
+                resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+    </script>
+</body>
+</html>

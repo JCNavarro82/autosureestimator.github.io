@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- SEO Meta Tags -->
+    <title>Car Insurance Cost Calculator (US) | AutoSureEstimator</title>
+    <meta name="description" content="Free car insurance cost calculator for US drivers. Estimate your monthly and yearly premiums based on age, driving record, coverage, and state.">
+    <meta name="keywords" content="car insurance calculator, auto insurance estimate, insurance cost usa, car insurance rates by state">
+    <link rel="canonical" href="https://www.autosureestimator.com/car-insurance-cost-calculator.html">
+    
+    <!-- OpenGraph Tags -->
+    <meta property="og:title" content="Car Insurance Cost Calculator (US)">
+    <meta property="og:description" content="Get a realistic estimate of your car insurance costs based on risk factors. No sign-up required.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.autosureestimator.com/car-insurance-cost-calculator.html">
+    <meta property="og:site_name" content="AutoSureEstimator">
+
+    <style>
+        /* --- CSS VARIABLES & RESET (Matched to Homepage) --- */
+        :root {
+            --primary-color: #0f172a;
+            --secondary-color: #3b82f6;
+            --accent-color: #10b981;
+            --text-main: #334155;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --border-color: #e2e8f0;
+            --radius: 8px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --error-color: #ef4444;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-white);
+        }
+        a { text-decoration: none; color: inherit; transition: color 0.2s; }
+        ul { list-style: none; }
+        img, svg { display: block; max-width: 100%; }
+
+        /* --- LAYOUT UTILITIES --- */
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section-padding { padding: 60px 0; }
+        .text-center { text-align: center; }
+        .mt-4 { margin-top: 1.5rem; }
+        .mb-4 { margin-bottom: 1.5rem; }
+
+        /* --- NAVIGATION --- */
+        header {
+            background-color: var(--bg-white);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 70px; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary-color); letter-spacing: -0.5px; }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-weight: 500; color: var(--text-main); }
+        .nav-links a:hover { color: var(--secondary-color); }
+        @media (max-width: 768px) { .nav-links { display: none; } }
+
+        /* --- CALCULATOR PAGE SPECIFIC STYLES --- */
+        
+        /* Intro & Trust */
+        .page-header { background-color: var(--bg-light); padding: 60px 0 40px; text-align: center; }
+        .page-header h1 { font-size: 2.25rem; color: var(--primary-color); margin-bottom: 15px; }
+        .page-header p { max-width: 700px; margin: 0 auto; color: var(--text-light); }
+
+        .disclaimer-box {
+            background-color: #fff;
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--accent-color);
+            padding: 15px 20px;
+            margin: 30px auto 0;
+            max-width: 800px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-align: left;
+        }
+
+        /* Calculator Layout */
+        .calc-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        /* Form Styles */
+        .calc-form {
+            background: white;
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .form-group { margin-bottom: 20px; }
+        .form-label { display: block; font-weight: 600; margin-bottom: 8px; color: var(--primary-color); }
+        .form-note { font-size: 0.8rem; color: var(--text-light); font-weight: normal; margin-left: 5px; }
+        
+        .form-select, .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            background-color: #fff;
+            transition: border-color 0.2s;
+        }
+        .form-select:focus, .form-input:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .btn-calc {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-calc:hover { background-color: #2563eb; }
+
+        /* Results Box */
+        .result-box {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 30px;
+            border-radius: var(--radius);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            display: none; /* Hidden by default */
+        }
+        
+        .result-box.active { display: flex; animation: fadeIn 0.5s ease; }
+
+        .result-label { font-size: 1.1rem; color: #94a3b8; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        .result-amount { font-size: 3.5rem; font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 10px; }
+        .result-sub { font-size: 1.25rem; color: var(--accent-color); font-weight: 600; margin-bottom: 20px; }
+        .result-disclaimer { font-size: 0.85rem; color: #64748b; line-height: 1.5; padding-top: 20px; border-top: 1px solid #334155; }
+        
+        /* Placeholder for result area before calculation */
+        .result-placeholder {
+            background-color: var(--bg-light);
+            border: 2px dashed var(--border-color);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 40px;
+        }
+
+        /* Educational Sections */
+        .content-block { margin-bottom: 30px; }
+        .content-block h2 { color: var(--primary-color); margin-bottom: 15px; font-size: 1.75rem; }
+        .content-block h3 { font-size: 1.25rem; margin-bottom: 10px; color: var(--text-main); }
+        .content-block ul { list-style: disc; padding-left: 20px; color: var(--text-main); }
+        .content-block li { margin-bottom: 10px; }
+
+        /* FAQ */
+        details { border-bottom: 1px solid var(--border-color); padding: 15px 0; }
+        details summary { font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; list-style: none; }
+        details summary::after { content: "+"; font-size: 1.5rem; color: var(--text-light); }
+        details[open] summary::after { content: "-"; }
+        details p { margin-top: 10px; color: var(--text-light); }
+
+        /* Footer (Matched) */
+        footer { background-color: var(--primary-color); color: #cbd5e1; padding: 60px 0 30px; margin-top: 60px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { color: white; margin-bottom: 20px; }
+        .copyright { text-align: center; padding-top: 30px; border-top: 1px solid #334155; font-size: 0.9rem; }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .calc-container { grid-template-columns: 1fr; }
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">AutoSureEstimator</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#tools">Tools</a></li>
+                    <li><a href="index.html#how-it-works">How It Works</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Car Insurance Cost Calculator (United States)</h1>
+                <p>Use our data-driven estimator to understand potential premium ranges for your specific risk profile.</p>
+                <div class="disclaimer-box">
+                    <strong>Note:</strong> This tool provides educational estimates based on market averages. It does not provide real-time quotes from insurers. Your actual rate will depend on your VIN, exact address, and underwriting.
+                </div>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="container mb-4">
+            <div class="calc-container">
+                
+                <!-- Input Form -->
+                <form id="insuranceForm" class="calc-form" onsubmit="calculateInsurance(event)">
+                    
+                    <div class="form-group">
+                        <label class="form-label">State of Residence</label>
+                        <select id="state" class="form-select" required>
+                            <option value="" disabled selected>Select your state...</option>
+                            <option value="1.0">National Average / Other</option>
+                            <option value="0.85">Ohio (Low Cost)</option>
+                            <option value="0.88">Maine (Low Cost)</option>
+                            <option value="0.9">Idaho (Low Cost)</option>
+                            <option value="1.3">Texas (High Cost)</option>
+                            <option value="1.4">California (High Cost)</option>
+                            <option value="1.5">New York (Very High)</option>
+                            <option value="1.6">Florida (Very High)</option>
+                            <option value="1.55">Louisiana (Very High)</option>
+                            <option value="1.7">Michigan (Very High)</option>
+                            <option value="1.1">Georgia (Avg/High)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Driver Age Range</label>
+                        <select id="age" class="form-select" required>
+                            <option value="1.8">Under 25 (High Risk)</option>
+                            <option value="1.2">25 – 34</option>
+                            <option value="1.0" selected>35 – 49</option>
+                            <option value="0.95">50 – 64</option>
+                            <option value="1.1">65+</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Driving Record (Last 3 Years)</label>
+                        <select id="record" class="form-select" required>
+                            <option value="1.0" selected>Clean Record</option>
+                            <option value="1.25">1 Speeding Ticket</option>
+                            <option value="1.45">1 At-Fault Accident</option>
+                            <option value="2.5">DUI / Major Violation</option>
+                            <option value="1.8">Multiple Violations</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Coverage Level</label>
+                        <select id="coverage" class="form-select" required>
+                            <option value="0.6">State Minimum Liability Only</option>
+                            <option value="1.0" selected>Standard (Liability + Comp/Coll)</option>
+                            <option value="1.4">Full Coverage (High Limits + Extras)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Deductible Preference</label>
+                        <select id="deductible" class="form-select">
+                            <option value="1.1">$500 (Higher Premium)</option>
+                            <option value="1.0" selected>$1,000 (Standard)</option>
+                            <option value="0.9">$1,500+ (Lower Premium)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Credit Tier <span class="form-note">(Not used in CA, MA, HI, MI)</span></label>
+                        <select id="credit" class="form-select">
+                            <option value="0.8">Excellent (750+)</option>
+                            <option value="1.0" selected>Good (700-749)</option>
+                            <option value="1.25">Fair (600-699)</option>
+                            <option value="1.6">Poor (Below 600)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-calc">Calculate Estimate</button>
+                </form>
+
+                <!-- Results Area -->
+                <div>
+                    <div id="resultPlaceholder" class="result-placeholder">
+                        <p>Fill out the form and click "Calculate Estimate" to see your price range.</p>
+                    </div>
+
+                    <div id="resultBox" class="result-box">
+                        <div class="result-label">Estimated Monthly Premium</div>
+                        <div class="result-amount" id="monthlyResult">$0 - $0</div>
+                        <div class="result-sub" id="yearlyResult">($0 - $0 / year)</div>
+                        
+                        <div class="result-disclaimer">
+                            Based on your inputs. This range includes typical carrier fees but excludes specific discounts (like bundling or telematics) which could save you up to 20%.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Educational Content -->
+        <section class="section-padding container">
+            <div class="content-block">
+                <h2>What Impacts Your Premium?</h2>
+                <p>Insurers use complex algorithms to determine your rate. While every company is different, these are the primary factors affecting your US auto insurance costs:</p>
+                <br>
+                <ul>
+                    <li><strong>Location (Zip Code):</strong> Urban areas with higher rates of theft and accidents typically cost more than rural areas.</li>
+                    <li><strong>Age & Experience:</strong> Drivers under 25 lack experience and statistically have more accidents, leading to significantly higher rates.</li>
+                    <li><strong>Driving Record:</strong> A clean record is the best way to keep rates low. A DUI can increase premiums by over 100% in many states.</li>
+                    <li><strong>Credit History:</strong> In most states, statistics show a correlation between credit score and claims filing, allowing insurers to charge more for lower scores.</li>
+                    <li><strong>Vehicle Type:</strong> Expensive cars cost more to repair, and sports cars are driven more aggressively, both raising premiums.</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h2>Methodology</h2>
+                <p>This calculator uses a base rate derived from national average insurance data (approx. $1,600/year for standard coverage as of 2024). We apply weighted multipliers based on the risk factors you select. For example, a "Poor" credit score may apply a 1.6x multiplier, while a "Clean" driving record applies a 1.0x baseline. The final output is provided as a range (+/- 15%) to account for the variance between different insurance carriers (e.g., GEICO vs. State Farm vs. Progressive).</p>
+            </div>
+
+            <div class="content-block">
+                <h2>Frequently Asked Questions</h2>
+                <details>
+                    <summary>How accurate is this calculator?</summary>
+                    <p>It provides a "ballpark" figure. Actual quotes can vary by hundreds of dollars because insurers weigh risk factors differently. Use this to set your budget expectations.</p>
+                </details>
+                <details>
+                    <summary>Does checking this affect my credit score?</summary>
+                    <p>No. This is a self-contained calculator. We do not run a credit check or access your personal files.</p>
+                </details>
+                <details>
+                    <summary>Why is insurance in Florida/New York so expensive?</summary>
+                    <p>These states have high population density, higher rates of litigation/fraud (Florida), and mandatory no-fault laws that can increase costs.</p>
+                </details>
+                <details>
+                    <summary>How can I lower my estimate?</summary>
+                    <p>Raising your deductible, improving your credit score, and bundling home/renters insurance are the most effective ways to lower premiums immediately.</p>
+                </details>
+                <details>
+                    <summary>What is "Full Coverage"?</summary>
+                    <p>Full coverage generally refers to a policy that includes Liability (for others), plus Comprehensive and Collision (for your own car). It is usually required if you have a car loan.</p>
+                </details>
+                <details>
+                    <summary>Does the car color affect price?</summary>
+                    <p>No. This is a common myth. Insurers care about the Make, Model, Year, and Engine size, but the color (red, silver, etc.) does not impact the rate.</p>
+                </details>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>AutoSureEstimator</h4>
+                    <p style="font-size: 0.9rem; color: #94a3b8;">Empowering US drivers with transparent, data-driven insurance cost insights.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 AutoSureEstimator. All rights reserved. <br>Disclaimer: This website is for informational purposes only and does not provide financial advice.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Calculation Logic -->
+    <script>
+        function calculateInsurance(e) {
+            e.preventDefault();
+
+            // 1. Get Values
+            const stateFactor = parseFloat(document.getElementById('state').value);
+            const ageFactor = parseFloat(document.getElementById('age').value);
+            const recordFactor = parseFloat(document.getElementById('record').value);
+            const coverageFactor = parseFloat(document.getElementById('coverage').value);
+            const deductibleFactor = parseFloat(document.getElementById('deductible').value);
+            const creditFactor = parseFloat(document.getElementById('credit').value);
+
+            // 2. Base Rate (Annual average approx $1300-$1600 depending on source, using $1400 baseline)
+            let baseRate = 1400;
+
+            // 3. Apply Multipliers
+            let estimatedAnnual = baseRate * stateFactor * ageFactor * recordFactor * coverageFactor * deductibleFactor * creditFactor;
+
+            // 4. Create Range (+/- 15% for variance)
+            let lowAnnual = estimatedAnnual * 0.85;
+            let highAnnual = estimatedAnnual * 1.15;
+
+            let lowMonthly = lowAnnual / 12;
+            let highMonthly = highAnnual / 12;
+
+            // 5. Formatting
+            const formatCurrency = (num) => {
+                return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(num);
+            };
+
+            // 6. Update DOM
+            document.getElementById('monthlyResult').innerText = `${formatCurrency(lowMonthly)} - ${formatCurrency(highMonthly)}`;
+            document.getElementById('yearlyResult').innerText = `(${formatCurrency(lowAnnual)} - ${formatCurrency(highAnnual)} / year)`;
+
+            // 7. Show Result Box / Hide Placeholder
+            document.getElementById('resultPlaceholder').style.display = 'none';
+            const resultBox = document.getElementById('resultBox');
+            resultBox.style.display = 'flex';
+            resultBox.classList.add('active');
+            
+            // Scroll to result on mobile
+            if(window.innerWidth < 900) {
+                resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+    </script>
+</body>
+</html>

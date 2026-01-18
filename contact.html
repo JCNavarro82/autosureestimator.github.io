@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- SEO Meta Tags -->
+    <title>Contact Us | AutoSureEstimator</title>
+    <meta name="description" content="Contact AutoSureEstimator support. We welcome feedback, corrections, and questions about our insurance estimation tools.">
+    <link rel="canonical" href="https://www.autosureestimator.com/contact.html">
+
+    <style>
+        /* --- CSS VARIABLES & RESET (Consistent with Site Theme) --- */
+        :root {
+            --primary-color: #0f172a; /* Navy */
+            --secondary-color: #3b82f6; /* Blue */
+            --accent-color: #10b981; /* Green */
+            --text-main: #334155;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --border-color: #e2e8f0;
+            --radius: 8px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-white);
+        }
+        a { text-decoration: none; color: inherit; transition: color 0.2s; }
+        a.text-link { color: var(--secondary-color); font-weight: 500; }
+        a.text-link:hover { text-decoration: underline; }
+        ul { list-style: none; }
+        img, svg { display: block; max-width: 100%; }
+
+        /* --- LAYOUT UTILITIES --- */
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section-padding { padding: 60px 0; }
+        .text-center { text-align: center; }
+        .mt-4 { margin-top: 1.5rem; }
+        .mb-4 { margin-bottom: 1.5rem; }
+
+        /* --- NAVIGATION --- */
+        header {
+            background-color: var(--bg-white);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 70px; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary-color); letter-spacing: -0.5px; }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-weight: 500; color: var(--text-main); }
+        .nav-links a:hover { color: var(--secondary-color); }
+        @media (max-width: 768px) { .nav-links { display: none; } }
+
+        /* --- CONTACT PAGE SPECIFIC STYLES --- */
+        
+        .page-header { background-color: var(--bg-light); padding: 80px 0 60px; text-align: center; }
+        .page-header h1 { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 15px; }
+        .page-header p { max-width: 600px; margin: 0 auto; color: var(--text-light); font-size: 1.1rem; }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 0;
+        }
+
+        /* Contact Options Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .contact-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            padding: 40px 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #eff6ff;
+            color: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-card h3 {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .email-display {
+            font-family: monospace;
+            background-color: var(--bg-light);
+            padding: 10px 15px;
+            border-radius: 4px;
+            color: var(--text-main);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            border: 1px solid var(--border-color);
+        }
+
+        .response-note {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Correction Section */
+        .correction-section {
+            background-color: var(--bg-light);
+            padding: 40px;
+            border-radius: var(--radius);
+            border-left: 5px solid var(--secondary-color);
+        }
+
+        .correction-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        footer { background-color: var(--primary-color); color: #cbd5e1; padding: 60px 0 30px; margin-top: 60px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { color: white; margin-bottom: 20px; }
+        .footer-col a:hover { color: white; }
+        .copyright { text-align: center; padding-top: 30px; border-top: 1px solid #334155; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">AutoSureEstimator</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#tools">Tools</a></li>
+                    <li><a href="index.html#how-it-works">How It Works</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html" style="color: var(--secondary-color);">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <p>We are dedicated to improving our tools. Whether you have a question about our methodology or general feedback, we'd like to hear from you.</p>
+            </div>
+        </section>
+
+        <!-- Content -->
+        <section class="container">
+            <div class="contact-content">
+                
+                <div class="contact-grid">
+                    <!-- Email Card -->
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <h3>Email Support</h3>
+                        <p style="margin-bottom: 15px;">For general inquiries, please email us directly:</p>
+                        
+                        <div class="email-display">
+                            support [at] autosureestimator [dot] com
+                        </div>
+                        
+                        <p class="response-note">
+                            We typically respond to inquiries within 3–5 business days. <br>
+                            <em>(Please do not send sensitive documents via email.)</em>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Report a Correction -->
+                <div class="correction-section">
+                    <h2>Report a Correction</h2>
+                    <p>Our data is based on continuously changing state regulations and market averages. If you notice a specific error—such as an outdated minimum coverage requirement for a specific state or a broken calculator function—please let us know.</p>
+                    <p><strong>To help us fix it faster, please include:</strong></p>
+                    <ul style="list-style: disc; padding-left: 20px; margin-top: 10px; color: var(--text-main);">
+                        <li>The URL of the page containing the error.</li>
+                        <li>The specific value or text that is incorrect.</li>
+                        <li>A source (like a DMV link) for the correct information, if available.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>AutoSureEstimator</h4>
+                    <p style="font-size: 0.9rem; color: #94a3b8;">Empowering US drivers with transparent, data-driven insurance cost insights.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 AutoSureEstimator. All rights reserved. <br>Disclaimer: This website is for informational purposes only and does not provide financial advice.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

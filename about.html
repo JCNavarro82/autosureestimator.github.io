@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- SEO Meta Tags -->
+    <title>About Us | AutoSureEstimator</title>
+    <meta name="description" content="AutoSureEstimator is an independent, educational resource for US car insurance cost estimates. We are not an insurer and do not sell your data.">
+    <meta name="keywords" content="about autosureestimator, car insurance transparency, independent insurance data, auto insurance methodology">
+    <link rel="canonical" href="https://www.autosureestimator.com/about.html">
+    
+    <!-- OpenGraph Tags -->
+    <meta property="og:title" content="About AutoSureEstimator">
+    <meta property="og:description" content="We provide transparency in car insurance pricing without the sales calls. Learn about our mission and methodology.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.autosureestimator.com/about.html">
+    <meta property="og:site_name" content="AutoSureEstimator">
+
+    <style>
+        /* --- CSS VARIABLES & RESET (Consistent with Site Theme) --- */
+        :root {
+            --primary-color: #0f172a; /* Navy */
+            --secondary-color: #3b82f6; /* Blue */
+            --accent-color: #10b981; /* Green */
+            --text-main: #334155;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --border-color: #e2e8f0;
+            --radius: 8px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-white);
+        }
+        a { text-decoration: none; color: inherit; transition: color 0.2s; }
+        ul { list-style: none; }
+        img, svg { display: block; max-width: 100%; }
+
+        /* --- LAYOUT UTILITIES --- */
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section-padding { padding: 60px 0; }
+        .text-center { text-align: center; }
+        .mt-4 { margin-top: 1.5rem; }
+        .mb-4 { margin-bottom: 1.5rem; }
+
+        /* --- NAVIGATION --- */
+        header {
+            background-color: var(--bg-white);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 70px; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary-color); letter-spacing: -0.5px; }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-weight: 500; color: var(--text-main); }
+        .nav-links a:hover { color: var(--secondary-color); }
+        @media (max-width: 768px) { .nav-links { display: none; } }
+
+        /* --- ABOUT PAGE SPECIFIC STYLES --- */
+        
+        .page-header { background-color: var(--bg-light); padding: 80px 0 60px; text-align: center; }
+        .page-header h1 { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 15px; }
+        .page-header p { max-width: 700px; margin: 0 auto; color: var(--text-light); font-size: 1.1rem; }
+
+        .content-section {
+            padding: 50px 0;
+        }
+
+        .text-block {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .text-block h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--bg-light);
+        }
+
+        .text-block p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        /* "What We Are Not" Grid */
+        .not-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .not-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .not-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .not-card svg {
+            width: 24px;
+            height: 24px;
+            color: var(--secondary-color);
+        }
+
+        /* Methodology Box */
+        .method-box {
+            background-color: var(--bg-light);
+            padding: 30px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            margin-top: 40px;
+        }
+
+        .method-box h3 { color: var(--primary-color); margin-bottom: 15px; }
+        .method-box ul { list-style: disc; padding-left: 20px; margin-bottom: 20px; }
+        .method-box li { margin-bottom: 10px; }
+
+        /* Contact CTA */
+        .cta-box {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            border-radius: var(--radius);
+            margin-top: 60px;
+        }
+        .cta-box h2 { color: white; margin-bottom: 15px; }
+        .cta-box p { color: #cbd5e1; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .btn-white {
+            background-color: white;
+            color: var(--primary-color);
+            padding: 12px 30px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            display: inline-block;
+        }
+        .btn-white:hover { background-color: #f1f5f9; }
+
+        /* Footer */
+        footer { background-color: var(--primary-color); color: #cbd5e1; padding: 60px 0 30px; margin-top: 60px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { color: white; margin-bottom: 20px; }
+        .footer-col a:hover { color: white; }
+        .copyright { text-align: center; padding-top: 30px; border-top: 1px solid #334155; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">AutoSureEstimator</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#tools">Tools</a></li>
+                    <li><a href="index.html#how-it-works">How It Works</a></li>
+                    <li><a href="about.html" style="color: var(--secondary-color);">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>About AutoSureEstimator</h1>
+                <p>Demystifying car insurance costs for US drivers through independent data and transparency.</p>
+            </div>
+        </section>
+
+        <section class="content-section container">
+            <div class="text-block">
+                
+                <!-- Mission -->
+                <h2>Our Mission</h2>
+                <p>Car insurance pricing is notoriously opaque. Drivers often don't know if they are getting a fair rate until they've already shared their personal information with dozens of companies. <strong>AutoSureEstimator exists to change that.</strong></p>
+                <p>Our mission is to provide educational tools that allow US drivers to estimate typical insurance costs based on their risk profile—anonymously, instantly, and without sales pressure. We believe you should understand the "why" behind your premium before you shop.</p>
+
+                <!-- What We Are Not -->
+                <div class="not-grid">
+                    <div class="not-card">
+                        <h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                            </svg>
+                            Not an Insurer
+                        </h3>
+                        <p>We do not underwrite policies, issue coverage, or handle claims. We are strictly an informational resource.</p>
+                    </div>
+                    <div class="not-card">
+                        <h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                            </svg>
+                            Not a Lead Seller
+                        </h3>
+                        <p>We do not sell your personal information to insurance agents. Our calculators run in your browser and do not require sign-ups.</p>
+                    </div>
+                    <div class="not-card">
+                        <h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            Not Official Quotes
+                        </h3>
+                        <p>Our numbers are estimates based on market data. They are for budgeting and educational purposes only.</p>
+                    </div>
+                </div>
+
+                <!-- How It Works -->
+                <h2>How Our Estimates Work</h2>
+                <p>Insurance companies use complex, proprietary algorithms to determine rates. While we cannot replicate these exactly, we use <strong>aggregate industry data</strong> to model typical outcomes.</p>
+                <p>Our calculators utilize a "Base Rate" derived from national and state averages. We then apply "Risk Multipliers" based on the inputs you provide:</p>
+                <ul>
+                    <li><strong>Driver Profile:</strong> Age, driving history, and credit tier.</li>
+                    <li><strong>Location:</strong> State regulations and local risk factors.</li>
+                    <li><strong>Vehicle:</strong> Repair costs and theft probability.</li>
+                </ul>
+                <p>By combining these factors, we produce a high-low price range that reflects the typical spread you might see between different carriers.</p>
+
+                <!-- Editorial Principles -->
+                <div class="method-box">
+                    <h3>Editorial & Methodology Principles</h3>
+                    <p>We adhere to strict standards to ensure our content is trustworthy and useful:</p>
+                    <ul>
+                        <li><strong>Independence:</strong> Our content is not influenced by insurance companies. We recommend strategies (like high deductibles) that save you money, even if carriers prefer otherwise.</li>
+                        <li><strong>Data-Driven:</strong> We rely on data from regulatory filings, industry reports (e.g., NAIC), and market analysis to inform our baseline costs.</li>
+                        <li><strong>Privacy First:</strong> We believe you shouldn't have to trade your privacy for information. Our tools are designed to be used anonymously.</li>
+                    </ul>
+                    <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 20px; font-style: italic;">
+                        <strong>Methodology Note:</strong> All financial figures presented on AutoSureEstimator are estimates. Actual insurance premiums are highly individualized and depend on specific factors such as exact zip code, VIN, annual mileage, and underwriting guidelines which vary by carrier. Always consult with a licensed insurance agent for a binding quote.
+                    </p>
+                </div>
+
+                <!-- CTA -->
+                <div class="cta-box">
+                    <h2>Have Questions or Feedback?</h2>
+                    <p>We are constantly improving our algorithms and state-specific data. If you have suggestions or spot an error, please let us know.</p>
+                    <a href="contact.html" class="btn-white">Contact Us</a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>AutoSureEstimator</h4>
+                    <p style="font-size: 0.9rem; color: #94a3b8;">Empowering US drivers with transparent, data-driven insurance cost insights.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 AutoSureEstimator. All rights reserved. <br>Disclaimer: This website is for informational purposes only and does not provide financial advice.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

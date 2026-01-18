@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- SEO Meta Tags -->
+    <title>Car Insurance Deductible vs Premium Calculator | AutoSureEstimator</title>
+    <meta name="description" content="Calculate if raising your car insurance deductible is worth the savings. Estimate break-even points and monthly premium reductions.">
+    <meta name="keywords" content="deductible calculator, car insurance deductible vs premium, raise deductible save money, auto insurance break even calculator">
+    <link rel="canonical" href="https://www.autosureestimator.com/deductible-vs-premium.html">
+    
+    <!-- OpenGraph Tags -->
+    <meta property="og:title" content="Deductible vs Premium Calculator">
+    <meta property="og:description" content="Should you raise your deductible to $1,000? Use this calculator to see your break-even point.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.autosureestimator.com/deductible-vs-premium.html">
+    <meta property="og:site_name" content="AutoSureEstimator">
+
+    <style>
+        /* --- CSS VARIABLES & RESET (Matched to Homepage) --- */
+        :root {
+            --primary-color: #0f172a;
+            --secondary-color: #3b82f6;
+            --accent-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --text-main: #334155;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --border-color: #e2e8f0;
+            --radius: 8px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-white);
+        }
+        a { text-decoration: none; color: inherit; transition: color 0.2s; }
+        ul { list-style: none; }
+        img, svg { display: block; max-width: 100%; }
+
+        /* --- LAYOUT UTILITIES --- */
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section-padding { padding: 60px 0; }
+        .text-center { text-align: center; }
+        .mt-4 { margin-top: 1.5rem; }
+        .mb-4 { margin-bottom: 1.5rem; }
+
+        /* --- NAVIGATION --- */
+        header {
+            background-color: var(--bg-white);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 70px; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary-color); letter-spacing: -0.5px; }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-weight: 500; color: var(--text-main); }
+        .nav-links a:hover { color: var(--secondary-color); }
+        @media (max-width: 768px) { .nav-links { display: none; } }
+
+        /* --- PAGE SPECIFIC STYLES --- */
+        
+        .page-header { background-color: var(--bg-light); padding: 60px 0 40px; text-align: center; }
+        .page-header h1 { font-size: 2.25rem; color: var(--primary-color); margin-bottom: 15px; }
+        .page-header p { max-width: 700px; margin: 0 auto; color: var(--text-light); }
+
+        .disclaimer-box {
+            background-color: #fff;
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px 20px;
+            margin: 30px auto 0;
+            max-width: 800px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-align: left;
+        }
+
+        /* Calculator Layout */
+        .calc-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .calc-form {
+            background: white;
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .form-group { margin-bottom: 20px; }
+        .form-label { display: block; font-weight: 600; margin-bottom: 8px; color: var(--primary-color); }
+        .form-note { font-size: 0.8rem; color: var(--text-light); font-weight: normal; margin-left: 5px; }
+
+        .form-select, .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            background-color: #fff;
+            transition: border-color 0.2s;
+        }
+        .form-select:focus, .form-input:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .btn-calc {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-calc:hover { background-color: #2563eb; }
+
+        /* Results Box */
+        .result-box {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px;
+            border-radius: var(--radius);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            display: none;
+        }
+        
+        .result-box.active { display: flex; animation: fadeIn 0.5s ease; }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .result-row:last-child { border-bottom: none; }
+
+        .result-label { color: #94a3b8; font-size: 0.95rem; }
+        .result-value { font-size: 1.25rem; font-weight: 700; color: #fff; }
+        
+        .break-even-block {
+            background-color: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: var(--radius);
+            margin-top: 20px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .break-even-number { font-size: 2.5rem; font-weight: 800; color: var(--accent-color); line-height: 1.2; }
+        .break-even-text { color: #cbd5e1; font-size: 0.9rem; }
+
+        .result-placeholder {
+            background-color: var(--bg-light);
+            border: 2px dashed var(--border-color);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 40px;
+            min-height: 300px;
+        }
+
+        /* Educational Content */
+        .content-block { margin-bottom: 30px; }
+        .content-block h2 { color: var(--primary-color); margin-bottom: 15px; font-size: 1.75rem; }
+        .content-block p { margin-bottom: 15px; }
+        .content-block ul { list-style: disc; padding-left: 20px; color: var(--text-main); margin-bottom: 15px; }
+        
+        /* FAQ */
+        details { border-bottom: 1px solid var(--border-color); padding: 15px 0; }
+        details summary { font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; list-style: none; }
+        details summary::after { content: "+"; font-size: 1.5rem; color: var(--text-light); }
+        details[open] summary::after { content: "-"; }
+        details p { margin-top: 10px; color: var(--text-light); }
+
+        /* Footer */
+        footer { background-color: var(--primary-color); color: #cbd5e1; padding: 60px 0 30px; margin-top: 60px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { color: white; margin-bottom: 20px; }
+        .footer-col a:hover { color: white; }
+        .copyright { text-align: center; padding-top: 30px; border-top: 1px solid #334155; font-size: 0.9rem; }
+
+        @media (max-width: 900px) {
+            .calc-container { grid-template-columns: 1fr; }
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">AutoSureEstimator</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#tools">Tools</a></li>
+                    <li><a href="index.html#how-it-works">How It Works</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Deductible vs. Premium Calculator</h1>
+                <p>Calculate your potential savings by raising your collision/comprehensive deductible. Find out how long it takes to "break even" on the risk.</p>
+                <div class="disclaimer-box">
+                    <strong>Note:</strong> Savings estimates are based on industry averages (typically 7-15% of total premium). Actual carrier discounts vary by state and driving record.
+                </div>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="container mb-4">
+            <div class="calc-container">
+                
+                <!-- Input Form -->
+                <form id="deductibleForm" class="calc-form" onsubmit="calculateBreakEven(event)">
+                    
+                    <div class="form-group">
+                        <label class="form-label">Current Monthly Premium ($)</label>
+                        <input type="number" id="currentPremium" class="form-input" placeholder="e.g. 150" min="1" step="0.01" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Current Deductible</label>
+                        <select id="currentDeductible" class="form-select" required>
+                            <option value="250">$250 (Low)</option>
+                            <option value="500" selected>$500 (Standard)</option>
+                            <option value="1000">$1,000</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Proposed New Deductible</label>
+                        <select id="newDeductible" class="form-select" required>
+                            <option value="500">$500</option>
+                            <option value="1000" selected>$1,000 (Recommended)</option>
+                            <option value="1500">$1,500</option>
+                            <option value="2000">$2,000 (High Risk)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-calc">Calculate Savings</button>
+                </form>
+
+                <!-- Results Area -->
+                <div>
+                    <div id="resultPlaceholder" class="result-placeholder">
+                        <p>Enter your current premium and deductible choices to see your break-even analysis.</p>
+                    </div>
+
+                    <div id="resultBox" class="result-box">
+                        <div class="result-row">
+                            <div class="result-label">Estimated Monthly Savings</div>
+                            <div class="result-value" id="monthlySavings">$0.00</div>
+                        </div>
+                        <div class="result-row">
+                            <div class="result-label">Estimated Annual Savings</div>
+                            <div class="result-value" id="annualSavings">$0.00</div>
+                        </div>
+                        <div class="result-row">
+                            <div class="result-label">Increased Risk (Gap)</div>
+                            <div class="result-value" id="riskGap" style="color: #fca5a5;">$0.00</div>
+                        </div>
+
+                        <div class="break-even-block">
+                            <div class="break-even-number" id="breakEvenMonths">0 Months</div>
+                            <div class="break-even-text">Time to Break Even</div>
+                            <p style="margin-top: 10px; font-size: 0.85rem; color: #94a3b8; line-height: 1.4;">
+                                If you drive accident-free for this long, the savings in your pocket will exceed the extra cost of the higher deductible.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Educational Content -->
+        <section class="section-padding container">
+            
+            <div class="content-block">
+                <h2>What is an Auto Insurance Deductible?</h2>
+                <p>Your deductible is the amount of money you agree to pay out-of-pocket before your insurance company steps in to cover a claim. This applies primarily to <strong>Collision</strong> (hitting another car/object) and <strong>Comprehensive</strong> (theft, weather, vandalism) coverage.</p>
+                <p>For example, if you have a $500 deductible and cause $3,000 worth of damage to your car:</p>
+                <ul style="color:var(--text-main);">
+                    <li>You pay the first $500 (to the repair shop).</li>
+                    <li>The insurance company pays the remaining $2,500.</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h2>When Does a Higher Deductible Make Sense?</h2>
+                <p>Raising your deductible from $500 to $1,000 is one of the fastest ways to lower your premium. It makes sense if:</p>
+                <ul>
+                    <li><strong>You have an Emergency Fund:</strong> You must have $1,000 readily available in savings to cover the cost if an accident happens tomorrow.</li>
+                    <li><strong>You are a Safe Driver:</strong> If you haven't filed a claim in 5+ years, you are statistically paying for coverage you rarely use.</li>
+                    <li><strong>The Break-Even Period is Short:</strong> If the savings pay for the risk difference in under 3 years (36 months), it is generally considered a good financial move.</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h2>Methodology</h2>
+                <p>This calculator estimates savings based on typical industry pricing structures. While exact formulas are proprietary to each insurer, raising a deductible generally affects the Collision/Comprehensive portion of your bill. We estimate a 7-9% total bill reduction when moving from $500 to $1,000, and smaller percentages for higher tiers. The "Break-Even" calculation divides the difference in deductibles by the monthly savings.</p>
+            </div>
+
+            <div class="content-block">
+                <h2>Frequently Asked Questions</h2>
+                <details>
+                    <summary>Does my deductible apply to Liability coverage?</summary>
+                    <p>No. Liability coverage (which pays for damage you cause to others) generally has no deductible. You start paying from dollar one for the other person's repairs.</p>
+                </details>
+                <details>
+                    <summary>Is a $2,000 deductible too risky?</summary>
+                    <p>It depends on your finances. If a $2,000 repair bill would force you into debt or prevent you from fixing your car, then yes, it is too risky. Stick to a deductible you can afford to pay in cash immediately.</p>
+                </details>
+                <details>
+                    <summary>What if the damage is less than my deductible?</summary>
+                    <p>If you have a $1,000 deductible and the repair costs $800, your insurance pays nothing. You pay the full $800, and it is usually better not to file the claim at all to avoid a rate hike.</p>
+                </details>
+                <details>
+                    <summary>Does a higher deductible affect my credit score?</summary>
+                    <p>No. Your deductible choice has no impact on your credit score.</p>
+                </details>
+                <details>
+                    <summary>Can I change my deductible at any time?</summary>
+                    <p>Yes, you can typically call your agent and change your deductible effective immediately. However, you cannot change it <em>after</em> an accident has occurred to cover that specific claim.</p>
+                </details>
+                <details>
+                    <summary>Do I have to pay the deductible if I am not at fault?</summary>
+                    <p>Usually, no. If the other driver is 100% at fault, their insurance pays for your repairs, and you pay nothing. If you use your own insurance first (to speed things up), you pay your deductible, but your insurer will try to recover it (subrogation) and refund you later.</p>
+                </details>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>AutoSureEstimator</h4>
+                    <p style="font-size: 0.9rem; color: #94a3b8;">Empowering US drivers with transparent, data-driven insurance cost insights.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 AutoSureEstimator. All rights reserved. <br>Disclaimer: This website is for informational purposes only and does not provide financial advice.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Calculation Logic -->
+    <script>
+        function calculateBreakEven(e) {
+            e.preventDefault();
+
+            const currentPremium = parseFloat(document.getElementById('currentPremium').value);
+            const currentDed = parseInt(document.getElementById('currentDeductible').value);
+            const newDed = parseInt(document.getElementById('newDeductible').value);
+
+            // Validation
+            if (newDed <= currentDed) {
+                alert("Please select a New Deductible that is higher than your Current Deductible to calculate savings.");
+                return;
+            }
+
+            // Estimate Savings Percentage based on jump size
+            // Note: This is applied to TOTAL premium, so percentages are conservative estimates
+            // Assuming Comp/Coll is ~40% of bill.
+            // 250 -> 500: ~7% total savings
+            // 500 -> 1000: ~9% total savings
+            // 1000 -> 1500: ~6% total savings
+            // 1000 -> 2000: ~8% total savings
+            
+            let savingsPercent = 0.05; // Default fallback
+
+            if (currentDed === 250 && newDed === 500) savingsPercent = 0.07;
+            if (currentDed === 250 && newDed === 1000) savingsPercent = 0.12;
+            if (currentDed === 500 && newDed === 1000) savingsPercent = 0.09;
+            if (currentDed === 500 && newDed === 1500) savingsPercent = 0.12;
+            if (currentDed === 500 && newDed === 2000) savingsPercent = 0.14;
+            if (currentDed === 1000 && newDed === 1500) savingsPercent = 0.05;
+            if (currentDed === 1000 && newDed === 2000) savingsPercent = 0.08;
+
+            const monthlySavings = currentPremium * savingsPercent;
+            const annualSavings = monthlySavings * 12;
+            const riskGap = newDed - currentDed;
+            
+            // Break Even Calculation
+            // How many months of savings does it take to cover the Risk Gap?
+            const monthsToBreakEven = riskGap / monthlySavings;
+
+            // Formatting
+            const formatCurrency = (num) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(num);
+
+            document.getElementById('monthlySavings').innerText = formatCurrency(monthlySavings);
+            document.getElementById('annualSavings').innerText = formatCurrency(annualSavings);
+            document.getElementById('riskGap').innerText = formatCurrency(riskGap);
+            document.getElementById('breakEvenMonths').innerText = Math.ceil(monthsToBreakEven) + " Months";
+
+            // Show Results
+            document.getElementById('resultPlaceholder').style.display = 'none';
+            const resultBox = document.getElementById('resultBox');
+            resultBox.style.display = 'flex';
+            resultBox.classList.add('active');
+
+            if(window.innerWidth < 900) {
+                resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+    </script>
+</body>
+</html>

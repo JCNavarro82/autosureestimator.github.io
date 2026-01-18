@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- SEO Meta Tags -->
+    <title>Teen Driver Insurance Cost Estimator (US) | AutoSureEstimator</title>
+    <meta name="description" content="Estimate car insurance costs for teen drivers aged 16-19. Compare costs of adding a teen to a parent's policy vs. a separate policy.">
+    <meta name="keywords" content="teen car insurance cost, new driver insurance calculator, 16 year old insurance estimate, add teen to policy cost">
+    <link rel="canonical" href="https://www.autosureestimator.com/teen-driver-insurance-cost.html">
+    
+    <!-- OpenGraph Tags -->
+    <meta property="og:title" content="Teen Driver Insurance Cost Estimator">
+    <meta property="og:description" content="Calculate the cost of insuring a new teen driver. See how much you can save by bundling with a parent policy.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.autosureestimator.com/teen-driver-insurance-cost.html">
+    <meta property="og:site_name" content="AutoSureEstimator">
+
+    <style>
+        /* --- CSS VARIABLES & RESET (Matched to Homepage) --- */
+        :root {
+            --primary-color: #0f172a;
+            --secondary-color: #3b82f6;
+            --accent-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --text-main: #334155;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --border-color: #e2e8f0;
+            --radius: 8px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-white);
+        }
+        a { text-decoration: none; color: inherit; transition: color 0.2s; }
+        ul { list-style: none; }
+        img, svg { display: block; max-width: 100%; }
+
+        /* --- LAYOUT UTILITIES --- */
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section-padding { padding: 60px 0; }
+        .text-center { text-align: center; }
+        .mt-4 { margin-top: 1.5rem; }
+        .mb-4 { margin-bottom: 1.5rem; }
+
+        /* --- NAVIGATION --- */
+        header {
+            background-color: var(--bg-white);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 70px; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary-color); letter-spacing: -0.5px; }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-weight: 500; color: var(--text-main); }
+        .nav-links a:hover { color: var(--secondary-color); }
+        @media (max-width: 768px) { .nav-links { display: none; } }
+
+        /* --- PAGE SPECIFIC STYLES --- */
+        
+        .page-header { background-color: var(--bg-light); padding: 60px 0 40px; text-align: center; }
+        .page-header h1 { font-size: 2.25rem; color: var(--primary-color); margin-bottom: 15px; }
+        .page-header p { max-width: 700px; margin: 0 auto; color: var(--text-light); }
+
+        .disclaimer-box {
+            background-color: #fff;
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px 20px;
+            margin: 30px auto 0;
+            max-width: 800px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-align: left;
+        }
+
+        /* Calculator Layout */
+        .calc-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .calc-form {
+            background: white;
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .form-group { margin-bottom: 20px; }
+        .form-label { display: block; font-weight: 600; margin-bottom: 8px; color: var(--primary-color); }
+        
+        .form-select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            background-color: #fff;
+            transition: border-color 0.2s;
+        }
+        .form-select:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .btn-calc {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-calc:hover { background-color: #2563eb; }
+
+        /* Results Box */
+        .result-box {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 30px;
+            border-radius: var(--radius);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            display: none;
+        }
+        
+        .result-box.active { display: flex; animation: fadeIn 0.5s ease; }
+
+        .result-label { font-size: 1.1rem; color: #94a3b8; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        .result-amount { font-size: 3.5rem; font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 10px; }
+        .result-sub { font-size: 1.25rem; color: var(--accent-color); font-weight: 600; margin-bottom: 20px; }
+        
+        .savings-note {
+            background-color: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: var(--radius);
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            margin-top: 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .result-placeholder {
+            background-color: var(--bg-light);
+            border: 2px dashed var(--border-color);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 40px;
+            min-height: 300px;
+        }
+
+        /* Educational Content */
+        .content-block { margin-bottom: 30px; }
+        .content-block h2 { color: var(--primary-color); margin-bottom: 15px; font-size: 1.75rem; }
+        .content-block h3 { font-size: 1.25rem; margin-bottom: 10px; color: var(--text-main); }
+        .content-block ul { list-style: disc; padding-left: 20px; color: var(--text-main); }
+        .content-block li { margin-bottom: 10px; }
+
+        .discount-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .discount-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: var(--radius);
+            transition: transform 0.2s;
+        }
+        .discount-card:hover { transform: translateY(-2px); border-color: var(--secondary-color); }
+        .discount-card h4 { color: var(--secondary-color); margin-bottom: 10px; }
+
+        /* FAQ */
+        details { border-bottom: 1px solid var(--border-color); padding: 15px 0; }
+        details summary { font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; list-style: none; }
+        details summary::after { content: "+"; font-size: 1.5rem; color: var(--text-light); }
+        details[open] summary::after { content: "-"; }
+        details p { margin-top: 10px; color: var(--text-light); }
+
+        /* Footer */
+        footer { background-color: var(--primary-color); color: #cbd5e1; padding: 60px 0 30px; margin-top: 60px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { color: white; margin-bottom: 20px; }
+        .copyright { text-align: center; padding-top: 30px; border-top: 1px solid #334155; font-size: 0.9rem; }
+
+        @media (max-width: 900px) {
+            .calc-container { grid-template-columns: 1fr; }
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">AutoSureEstimator</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#tools">Tools</a></li>
+                    <li><a href="index.html#how-it-works">How It Works</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Teen Driver Insurance Cost Estimator</h1>
+                <p>Insuring a teen driver is expensive, but bundling with a parent's policy can save thousands. Use our calculator to compare options.</p>
+                <div class="disclaimer-box">
+                    <strong>Note:</strong> Estimates reflect the <em>added</em> cost to a parent's policy OR the total cost of a standalone policy for a teen. Prices vary by zip code and vehicle.
+                </div>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="container mb-4">
+            <div class="calc-container">
+                
+                <!-- Input Form -->
+                <form id="teenForm" class="calc-form" onsubmit="calculateTeen(event)">
+                    
+                    <div class="form-group">
+                        <label class="form-label">State of Residence</label>
+                        <select id="state" class="form-select" required>
+                            <option value="" disabled selected>Select your state...</option>
+                            <option value="1.0">National Average / Other</option>
+                            <option value="0.85">Ohio (Lower Avg)</option>
+                            <option value="1.3">Texas</option>
+                            <option value="1.4">California</option>
+                            <option value="1.5">New York</option>
+                            <option value="1.6">Florida</option>
+                            <option value="1.1">Georgia</option>
+                            <option value="0.9">Virginia</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Teen Driver Age</label>
+                        <select id="age" class="form-select" required>
+                            <option value="1.3">16 Years Old (Highest Rate)</option>
+                            <option value="1.2">17 Years Old</option>
+                            <option value="1.1">18 Years Old</option>
+                            <option value="1.0">19 Years Old</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Policy Structure</label>
+                        <select id="policyType" class="form-select" required>
+                            <option value="1.0" selected>Add to Parent's Policy (Bundled)</option>
+                            <option value="1.8">Separate Policy (Individual)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Vehicle Type</label>
+                        <select id="vehicle" class="form-select" required>
+                            <option value="0.9">Economy / Older Sedan (Cheapest)</option>
+                            <option value="1.0" selected>Standard Sedan (e.g., Camry/Accord)</option>
+                            <option value="1.1">Small SUV / Crossover</option>
+                            <option value="1.5">Sports Car / Coupe (High Risk)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Coverage Level</label>
+                        <select id="coverage" class="form-select" required>
+                            <option value="0.7">State Minimum Liability Only</option>
+                            <option value="1.0" selected>Standard (Liability + Comp/Coll)</option>
+                            <option value="1.4">Full Coverage (High Limits)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-calc">Calculate Teen Estimate</button>
+                </form>
+
+                <!-- Results Area -->
+                <div>
+                    <div id="resultPlaceholder" class="result-placeholder">
+                        <p>Fill out the form to see estimated insurance costs for a teen driver.</p>
+                    </div>
+
+                    <div id="resultBox" class="result-box">
+                        <div class="result-label" id="resultLabelText">Estimated Monthly Cost</div>
+                        <div class="result-amount" id="monthlyResult">$0 - $0</div>
+                        <div class="result-sub" id="annualResult">($0 - $0 / year)</div>
+                        
+                        <div class="savings-note" id="savingsNote">
+                            <!-- Dynamic text based on policy type -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Educational Content -->
+        <section class="section-padding container">
+            
+            <div class="content-block">
+                <h2>Top Cost Drivers for Teens</h2>
+                <p>Why is teen insurance so expensive? Statistically, drivers aged 16-19 are three times more likely to be involved in a fatal crash than drivers aged 20+. Key factors include:</p>
+                <ul>
+                    <li><strong>Inexperience:</strong> Inability to recognize hazardous situations.</li>
+                    <li><strong>Distracted Driving:</strong> Higher rates of phone usage while driving.</li>
+                    <li><strong>Night Driving:</strong> Higher accident probability after 9 PM.</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h2>Essential Discounts for Teen Drivers</h2>
+                <div class="discount-grid">
+                    <div class="discount-card">
+                        <h4>Good Student Discount</h4>
+                        <p>Maintaining a 'B' average (3.0 GPA) or higher can often save families <strong>10% to 15%</strong>. You will need to submit a report card annually.</p>
+                    </div>
+                    <div class="discount-card">
+                        <h4>Driver Training</h4>
+                        <p>Completing a certified driver's education course helps. Additionally, defensive driving courses may offer extra savings.</p>
+                    </div>
+                    <div class="discount-card">
+                        <h4>Telematics (Safe Driving Apps)</h4>
+                        <p>Installing a monitoring app (like Snapshot or DriveSafe) can lower premiums by <strong>up to 30%</strong> if the teen avoids hard braking and speeding.</p>
+                    </div>
+                    <div class="discount-card">
+                        <h4>Student Away at School</h4>
+                        <p>If your teen goes to college more than 100 miles away without a car, you can get a significant "resident student" discount.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h2>Methodology</h2>
+                <p>Our estimator uses a national base average for teen drivers (approx. $3,000 added annual cost for a 16-year-old on a parent's policy). We apply multipliers for age (rates drop slightly every year from 16 to 19), vehicle type, and state location. The "Individual Policy" option applies a heavy surcharge (approx. 80-100% markup) to reflect the loss of multi-car and multi-driver bundling benefits.</p>
+            </div>
+
+            <div class="content-block">
+                <h2>Frequently Asked Questions</h2>
+                <details>
+                    <summary>When do I need to add my teen to my policy?</summary>
+                    <p>Typically, you must add them as soon as they are licensed. During the "learner's permit" phase, they are usually covered automatically under your policy at no extra cost, but check with your agent.</p>
+                </details>
+                <details>
+                    <summary>Is it cheaper to get my teen their own policy?</summary>
+                    <p>Almost never. It is usually 50% to 100% more expensive for a teen to have a standalone policy because they lose the multi-car discount, multi-policy discount (home/auto bundle), and the "primary driver" rating of the parents.</p>
+                </details>
+                <details>
+                    <summary>Does the car they drive really matter?</summary>
+                    <p>Yes. Insuring a teen on a sports car or a luxury SUV can cost double compared to insuring them on an older, safe sedan (like a Honda Civic or Toyota Camry).</p>
+                </details>
+                <details>
+                    <summary>What is an "excluded driver"?</summary>
+                    <p>If you have a very expensive car that you don't want the teen to drive, you can specifically "exclude" them from that vehicle to lower rates. However, if they ever drive it and crash, there is ZERO coverage.</p>
+                </details>
+                <details>
+                    <summary>At what age do insurance rates drop?</summary>
+                    <p>Rates drop slightly at 19, again at 21, and significantly at age 25, provided the driver maintains a clean record.</p>
+                </details>
+                <details>
+                    <summary>Does gender affect the price?</summary>
+                    <p>In most states, yes. Teen males typically pay more than teen females due to higher accident statistics. However, some states (like CA, HI, MA, MI, NC, PA) prohibit using gender as a rating factor.</p>
+                </details>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>AutoSureEstimator</h4>
+                    <p style="font-size: 0.9rem; color: #94a3b8;">Empowering US drivers with transparent, data-driven insurance cost insights.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 AutoSureEstimator. All rights reserved. <br>Disclaimer: This website is for informational purposes only and does not provide financial advice.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Calculation Logic -->
+    <script>
+        function calculateTeen(e) {
+            e.preventDefault();
+
+            // 1. Get Values
+            const stateFactor = parseFloat(document.getElementById('state').value);
+            const ageFactor = parseFloat(document.getElementById('age').value);
+            const policyFactor = parseFloat(document.getElementById('policyType').value);
+            const vehicleFactor = parseFloat(document.getElementById('vehicle').value);
+            const coverageFactor = parseFloat(document.getElementById('coverage').value);
+
+            // 2. Base Rate 
+            // This base represents the *added* cost to a parent's policy for a 19yo (factor 1.0)
+            // Approx $2,200/year base added cost.
+            let baseRate = 2200;
+
+            // 3. Calculation
+            let estimatedAnnual = baseRate * stateFactor * ageFactor * policyFactor * vehicleFactor * coverageFactor;
+
+            // 4. Create Range (+/- 15%)
+            let lowAnnual = estimatedAnnual * 0.85;
+            let highAnnual = estimatedAnnual * 1.15;
+
+            let lowMonthly = lowAnnual / 12;
+            let highMonthly = highAnnual / 12;
+
+            // 5. Formatting
+            const formatCurrency = (num) => {
+                return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(num);
+            };
+
+            // 6. Dynamic Text Logic
+            let noteText = "";
+            let labelText = "Estimated Monthly Cost";
+            
+            if (policyFactor === 1.8) {
+                // Separate Policy
+                labelText = "Estimated Total Monthly Premium";
+                noteText = "<strong>Tip:</strong> You are viewing estimates for a standalone policy. Bundling with a parent could save you approx. <strong>40-50%</strong>.";
+            } else {
+                // Added to Parent
+                labelText = "Estimated Monthly Increase";
+                noteText = "<strong>Good Choice:</strong> This reflects the <em>added</em> cost to the parent's current bill. This is typically the most economical option.";
+            }
+
+            // 7. Update DOM
+            document.getElementById('monthlyResult').innerText = `${formatCurrency(lowMonthly)} - ${formatCurrency(highMonthly)}`;
+            document.getElementById('annualResult').innerText = `(${formatCurrency(lowAnnual)} - ${formatCurrency(highAnnual)} / year)`;
+            document.getElementById('savingsNote').innerHTML = noteText;
+            document.getElementById('resultLabelText').innerText = labelText;
+
+            // 8. Show Result Box
+            document.getElementById('resultPlaceholder').style.display = 'none';
+            const resultBox = document.getElementById('resultBox');
+            resultBox.style.display = 'flex';
+            resultBox.classList.add('active');
+            
+            if(window.innerWidth < 900) {
+                resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+    </script>
+</body>
+</html>
