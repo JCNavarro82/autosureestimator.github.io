@@ -1,259 +1,531 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
-    <!-- SEO Meta Tags -->
-    <title>Privacy Policy | AutoSureEstimator</title>
-    <meta name="description" content="Privacy Policy for AutoSureEstimator. Learn how we handle your data, our use of cookies, and our commitment to not selling your personal information.">
-    <meta name="robots" content="noindex, follow"> <!-- Often good for policy pages to avoid cluttering search results, though optional -->
-    <link rel="canonical" href="https://www.autosureestimator.com/privacy-policy.html">
+  <!-- Fonts (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <style>
-        /* --- CSS VARIABLES & RESET (Consistent with Site Theme) --- */
-        :root {
-            --primary-color: #0f172a; /* Navy */
-            --secondary-color: #3b82f6; /* Blue */
-            --accent-color: #10b981; /* Green */
-            --text-main: #334155;
-            --text-light: #64748b;
-            --bg-light: #f8fafc;
-            --bg-white: #ffffff;
-            --border-color: #e2e8f0;
-            --radius: 8px;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-            line-height: 1.6;
-            color: var(--text-main);
-            background-color: var(--bg-white);
-        }
-        a { text-decoration: none; color: inherit; transition: color 0.2s; }
-        a.text-link { color: var(--secondary-color); font-weight: 500; }
-        a.text-link:hover { text-decoration: underline; }
-        ul { list-style: none; }
-        img, svg { display: block; max-width: 100%; }
+  <!-- SEO -->
+  <title>Privacy Policy | AutoSureEstimator</title>
+  <meta name="description" content="Privacy Policy for AutoSureEstimator. Learn what data we collect, how we use it, and how advertising cookies may be used on this site." />
+  <link rel="canonical" href="https://autosureestimator.com/privacy-policy.html" />
 
-        /* --- LAYOUT UTILITIES --- */
-        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .section-padding { padding: 60px 0; }
-        .text-center { text-align: center; }
-        .mt-4 { margin-top: 1.5rem; }
-        .mb-4 { margin-bottom: 1.5rem; }
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Privacy Policy | AutoSureEstimator" />
+  <meta property="og:description" content="How we handle data, cookies, advertising, and your privacy choices." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://autosureestimator.com/privacy-policy.html" />
+  <meta property="og:site_name" content="AutoSureEstimator" />
 
-        /* --- NAVIGATION --- */
-        header {
-            background-color: var(--bg-white);
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 70px; }
-        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary-color); letter-spacing: -0.5px; }
-        .nav-links { display: flex; gap: 30px; }
-        .nav-links a { font-weight: 500; color: var(--text-main); }
-        .nav-links a:hover { color: var(--secondary-color); }
-        @media (max-width: 768px) { .nav-links { display: none; } }
+  <style>
+    /* =========================================================
+       DARK / TECH MINIMAL STYLE (MATCH tools.html + SR-22 page)
+       ========================================================= */
 
-        /* --- PRIVACY POLICY SPECIFIC STYLES --- */
-        
-        .page-header { background-color: var(--bg-light); padding: 60px 0; text-align: center; }
-        .page-header h1 { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 10px; }
-        .last-updated { font-size: 0.9rem; color: var(--text-light); font-style: italic; }
+    :root{
+      --bg: #050505;
+      --surface: #0f0f10;
+      --surface-2: #131315;
+      --border: rgba(255,255,255,0.08);
+      --border-strong: rgba(255,255,255,0.14);
 
-        .policy-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 50px 0;
-        }
+      --text: #f4f4f5;     /* zinc-100 */
+      --muted: #a1a1aa;    /* zinc-400 */
+      --muted2: #71717a;   /* zinc-500 */
+      --muted3: #52525b;   /* zinc-600 */
 
-        .policy-section {
-            margin-bottom: 40px;
-        }
+      --blue: #3b82f6;     /* blue-500 */
+      --blue2: #2563eb;    /* blue-600 */
+      --amber: #f59e0b;    /* amber-500 */
 
-        .policy-section h2 {
-            font-size: 1.75rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--border-color);
-        }
+      --radius: 16px;
+      --shadow: 0 20px 40px -10px rgba(0,0,0,.55);
+      --max: 1200px;
+    }
 
-        .policy-section h3 {
-            font-size: 1.2rem;
-            color: var(--text-main);
-            margin: 20px 0 10px 0;
-        }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html{ scroll-behavior:smooth; }
+    body{
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a{ text-decoration:none; color:inherit; transition:color .2s, opacity .2s; }
+    ul{ list-style:none; }
+    .container{ max-width: var(--max); margin:0 auto; padding: 0 20px; }
 
-        .policy-section p {
-            margin-bottom: 15px;
-            font-size: 1.05rem;
-        }
+    /* Noise layer */
+    .noise-bg{
+      position: fixed;
+      inset: 0;
+      opacity: 0.03;
+      pointer-events: none;
+      z-index: 5;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
 
-        .policy-section ul {
-            list-style: disc;
-            padding-left: 20px;
-            margin-bottom: 20px;
-        }
+    /* Glass nav */
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(5,5,5,0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-container{
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      height: 64px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+    }
+    .brand-mark{
+      width: 26px; height: 26px;
+      background: var(--blue2);
+      border-radius: 8px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow: 0 0 12px rgba(37,99,235,.45);
+    }
+    .brand-mark::after{
+      content:"";
+      width: 12px; height: 12px;
+      background:#fff;
+      border-radius: 4px;
+      display:block;
+    }
+    .logo{
+      font-weight: 700;
+      letter-spacing: -0.2px;
+      font-size: 14px;
+      color: var(--text);
+    }
+    .nav-links{
+      display:flex;
+      gap: 28px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted2);
+    }
+    .nav-links a:hover{ color: #93c5fd; }
+    .nav-links a.active{ color: var(--text); }
+    @media (max-width: 768px){
+      .nav-links{ display:none; }
+    }
+    .mini{
+      font-size: 12px;
+      color: var(--muted2);
+      font-weight: 600;
+    }
+    .mini:hover{ color:#93c5fd; }
 
-        .policy-section li {
-            margin-bottom: 8px;
-        }
+    /* Page header */
+    .page-header{
+      padding: 76px 0 18px;
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(30,58,138,0.35);
+      background: rgba(30,58,138,0.12);
+      margin-bottom: 16px;
+    }
+    .pill-dot{
+      width: 8px; height: 8px;
+      border-radius: 999px;
+      background: var(--blue);
+      animation: pulse 1.4s infinite;
+    }
+    .pill span{
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #93c5fd;
+    }
+    @keyframes pulse{
+      0%,100%{ opacity: .6; transform: scale(1); }
+      50%{ opacity: 1; transform: scale(1.25); }
+    }
+    .page-header h1{
+      font-size: clamp(34px, 4.5vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 10px;
+    }
+    .gradient-title{
+      color: transparent;
+      background: linear-gradient(90deg, #60a5fa, #3b82f6, #6366f1);
+      -webkit-background-clip: text;
+      background-clip: text;
+      filter: drop-shadow(0 1px 0 rgba(255,255,255,0.06));
+    }
+    .subtitle{
+      max-width: 900px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 400;
+    }
+    .updated{
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--muted3);
+    }
 
-        .highlight-box {
-            background-color: #eff6ff;
-            border: 1px solid #bfdbfe;
-            padding: 20px;
-            border-radius: var(--radius);
-            margin-bottom: 30px;
-        }
-        
-        .highlight-box h3 { margin-top: 0; color: var(--secondary-color); }
+    /* Content */
+    .section{
+      position: relative;
+      z-index: 10;
+      padding: 22px 0 10px;
+    }
+    .wrap{
+      max-width: 900px;
+      margin: 0 auto;
+    }
 
-        /* Footer */
-        footer { background-color: var(--primary-color); color: #cbd5e1; padding: 60px 0 30px; margin-top: 60px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
-        .footer-col h4 { color: white; margin-bottom: 20px; }
-        .footer-col a:hover { color: white; }
-        .copyright { text-align: center; padding-top: 30px; border-top: 1px solid #334155; font-size: 0.9rem; }
-    </style>
+    .card{
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 18px;
+      position: relative;
+      overflow: hidden;
+      transition: transform .35s cubic-bezier(.16,1,.3,1), border-color .35s, background .35s, box-shadow .35s;
+      margin-top: 18px;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      border-color: rgba(59,130,246,0.28);
+      box-shadow: var(--shadow);
+      background: var(--surface-2);
+    }
+
+    h2{
+      font-size: 18px;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+      color: #e4e4e7;
+    }
+    h3{
+      font-size: 14px;
+      margin: 14px 0 8px;
+      color: #e4e4e7;
+    }
+    p, li{
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .bullets{
+      margin-top: 10px;
+      padding-left: 18px;
+      list-style: disc;
+    }
+    .bullets li{ margin: 8px 0; }
+
+    .summary{
+      background: rgba(9,9,11,0.35);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-left: 4px solid rgba(59,130,246,0.85);
+      border-radius: 16px;
+      padding: 14px 16px;
+      margin-top: 16px;
+    }
+    .summary strong{ color:#93c5fd; }
+
+    .note{
+      background: rgba(15,15,16,0.75);
+      border: 1px solid var(--border);
+      border-left: 4px solid rgba(245,158,11,0.9);
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .note strong{ color:#fbbf24; }
+
+    .link{
+      color:#93c5fd;
+    }
+    .link:hover{ opacity: .9; text-decoration: underline; }
+
+    /* Footer */
+    footer{
+      margin-top: 44px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 28px 0 30px;
+      color: var(--muted2);
+      position: relative;
+      z-index: 10;
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+    .footer-col h4{
+      color: #e4e4e7;
+      margin-bottom: 10px;
+      font-size: 13px;
+    }
+    .footer-col a:hover{ color: #93c5fd; }
+    .small{
+      font-size: 12px;
+      color: var(--muted3);
+      line-height: 1.55;
+    }
+    .copyright{
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      font-size: 12px;
+      text-align:center;
+      color: var(--muted3);
+    }
+  </style>
 </head>
+
 <body>
+  <div class="noise-bg"></div>
 
-    <!-- Navigation -->
-    <header>
-        <div class="container nav-container">
-            <a href="index.html" class="logo">AutoSureEstimator</a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#tools">Tools</a></li>
-                    <li><a href="index.html#how-it-works">How It Works</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
+  <!-- NAV -->
+  <header>
+    <div class="container nav-container">
+      <a href="tools.html" class="brand" aria-label="AutoSureEstimator Home">
+        <div class="brand-mark"></div>
+        <span class="logo">AutoSure</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="tools.html">Home</a></li>
+          <li><a href="tools.html">Tools</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a href="tools.html" class="mini">Resources</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HEADER -->
+    <section class="page-header">
+      <div class="container">
+        <div class="pill">
+          <span class="pill-dot"></span>
+          <span>Privacy</span>
         </div>
-    </header>
 
-    <main>
-        <!-- Page Header -->
-        <section class="page-header">
-            <div class="container">
-                <h1>Privacy Policy</h1>
-                <p class="last-updated">Last updated: January 17, 2026</p>
+        <h1>
+          <span class="gradient-title">Privacy</span>
+          <span style="color:#a1a1aa;"> Policy.</span>
+        </h1>
+
+        <p class="subtitle">
+          This policy explains what we collect, what we don’t, and how advertising cookies may be used on AutoSureEstimator.
+        </p>
+
+        <div class="updated">Last updated: February 18, 2026</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="wrap">
+
+          <div class="summary">
+            <p><strong>Key points:</strong></p>
+            <ul class="bullets">
+              <li>We do <strong>not sell</strong> personal information.</li>
+              <li>No account or sign-up is required to use our tools.</li>
+              <li>Calculator inputs are intended to be processed locally in your browser to generate estimates (we do not build a database of your form entries).</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h2>1) Information we collect</h2>
+
+            <h3>A. Information you provide (calculator inputs)</h3>
+            <p>
+              When you use our estimators, you may enter non-identifying data points (for example: state, age range, violation category, coverage level).
+              We do not ask for your name, physical address, Social Security number, driver’s license number, full policy documents, or VIN.
+            </p>
+
+            <h3>B. Information collected automatically</h3>
+            <p>
+              Like most websites, our hosting and security systems may log basic technical data such as IP address, browser type, pages visited,
+              and timestamps. This is used for security, abuse prevention, and high-level analytics.
+            </p>
+          </div>
+
+          <div class="card">
+            <h2>2) How we use information</h2>
+            <p>We use information to:</p>
+            <ul class="bullets">
+              <li>Operate and maintain site functionality</li>
+              <li>Understand aggregate usage patterns to improve the tools</li>
+              <li>Detect, prevent, and address technical issues and security threats</li>
+            </ul>
+            <p>
+              We do <strong>not</strong> create profiles for the purpose of selling leads to insurance agents or lead aggregators.
+            </p>
+          </div>
+
+          <div class="card">
+            <h2>3) Cookies & advertising</h2>
+            <p>
+              We may use cookies or similar technologies for basic site functionality and advertising.
+            </p>
+
+            <h3>Third-party advertising (Google AdSense)</h3>
+            <p>
+              We may use Google AdSense to serve ads. Google and its partners may use cookies to serve ads based on your visits to this and/or other websites.
+              This can include personalized advertising where permitted by applicable law and your settings.
+            </p>
+
+            <h3>Your choices</h3>
+            <ul class="bullets">
+              <li>
+                Manage personalized ads via Google’s ad settings:
+                <a class="link" href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Google Ads Settings</a>
+              </li>
+              <li>
+                Learn more / opt out of some interest-based ads:
+                <a class="link" href="https://www.aboutads.info" target="_blank" rel="noopener noreferrer">aboutads.info</a>
+              </li>
+              <li>
+                You can also control cookies through your browser settings.
+              </li>
+            </ul>
+
+            <div class="note">
+              <strong>Note:</strong> If you are in the EU/EEA/UK, cookie consent requirements may apply depending on how you configure advertising/analytics.
+              If you later add a consent banner, this policy remains compatible.
             </div>
-        </section>
+          </div>
 
-        <!-- Policy Content -->
-        <section class="container">
-            <div class="policy-content">
-                
-                <div class="highlight-box">
-                    <h3>Summary of Key Points</h3>
-                    <ul>
-                        <li>We <strong>do not sell</strong> your personal information.</li>
-                        <li>No account sign-up is required to use our tools.</li>
-                        <li>Calculator inputs (like age or zip code) are processed locally in your browser to generate estimates and are not permanently stored on our servers.</li>
-                    </ul>
-                </div>
+          <div class="card">
+            <h2>4) Data retention</h2>
 
-                <div class="policy-section">
-                    <h2>1. Information We Collect</h2>
-                    
-                    <h3>A. Information You Voluntarily Provide</h3>
-                    <p>When you use our cost estimators, you input non-identifying data points such as your age range, state of residence, driving history summary, and vehicle type. We do not ask for, nor do we collect, your name, physical address, email address, phone number, social security number, or Vehicle Identification Number (VIN).</p>
-                    
-                    <h3>B. Information Collected Automatically</h3>
-                    <p>Like most websites, when you visit AutoSureEstimator, our web hosting servers automatically log standard technical information. This may include:</p>
-                    <ul>
-                        <li>Internet Protocol (IP) address</li>
-                        <li>Browser type and version</li>
-                        <li>Time and date of your visit</li>
-                        <li>Pages visited</li>
-                    </ul>
-                    <p>This data is used for server health monitoring, security, and aggregate analytics to understand traffic patterns.</p>
-                </div>
+            <h3>Calculator data</h3>
+            <p>
+              We do not intend to store your calculator form inputs in a user-identifiable database. The estimator results are generated at the time of use.
+            </p>
 
-                <div class="policy-section">
-                    <h2>2. How We Use Information</h2>
-                    <p>We use the information described above to:</p>
-                    <ul>
-                        <li>Provide and maintain the functionality of our insurance cost calculators.</li>
-                        <li>Analyze website usage trends to improve user experience.</li>
-                        <li>Detect, prevent, and address technical issues or security threats.</li>
-                    </ul>
-                    <p>We <strong>do not</strong> create user profiles for the purpose of selling data to third-party insurance agents or lead aggregators.</p>
-                </div>
+            <h3>Log data</h3>
+            <p>
+              Technical logs (including IP addresses) may be retained for a limited period for security and auditing, then deleted or anonymized.
+              Retention length depends on hosting/security providers and operational needs.
+            </p>
+          </div>
 
-                <div class="policy-section">
-                    <h2>3. Cookies & Advertising</h2>
-                    <p>We use cookies and similar tracking technologies to track the activity on our Service and hold certain information.</p>
+          <div class="card">
+            <h2>5) Security</h2>
+            <p>
+              We implement reasonable technical and organizational measures to protect the site. However, no method of transmission or storage is 100% secure.
+            </p>
+          </div>
 
-                    <h3>Third-Party Advertising (Google AdSense)</h3>
-                    <p>We may use third-party advertising companies, such as Google AdSense, to serve ads when you visit our website. These companies may use cookies (such as the DoubleClick cookie) to provide interest-based advertisements about goods and services that may be of interest to you.</p>
-                    <p>Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to this site and/or other sites on the Internet.</p>
-                    
-                    <h3>Your Choices Regarding Ads</h3>
-                    <p>You may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" class="text-link" target="_blank" rel="noopener noreferrer">Google Ads Settings</a>. Alternatively, you can opt out of a third-party vendor's use of cookies for personalized advertising by visiting <a href="https://www.aboutads.info" class="text-link" target="_blank" rel="noopener noreferrer">www.aboutads.info</a>.</p>
-                </div>
+          <div class="card">
+            <h2>6) Children’s privacy</h2>
+            <p>
+              AutoSureEstimator is not intended for children under 13. We do not knowingly collect personal information from children.
+            </p>
+          </div>
 
-                <div class="policy-section">
-                    <h2>4. Data Retention</h2>
-                    <p><strong>Calculator Data:</strong> The specific inputs you enter into our forms are processed transiently (in the moment) to generate your result. We do not retain databases of user calculator inputs.</p>
-                    <p><strong>Log Data:</strong> Server logs containing IP addresses are retained for a standard duration necessary for security and auditing purposes, after which they are deleted or anonymized.</p>
-                </div>
+          <div class="card">
+            <h2>7) Changes to this policy</h2>
+            <p>
+              We may update this Privacy Policy from time to time. We will revise the “Last updated” date at the top of this page when changes are made.
+            </p>
+          </div>
 
-                <div class="policy-section">
-                    <h2>5. Your Choices</h2>
-                    <p>Since we do not collect personal contact information or require accounts, there is no need to "unsubscribe" from email lists or delete an account. You can control cookies through your browser settings or by using the opt-out links provided in the Advertising section above.</p>
-                </div>
+          <div class="card">
+            <h2>8) Contact</h2>
+            <p>
+              If you have questions about this Privacy Policy, contact us:
+            </p>
+            <ul class="bullets">
+              <li>Email: <a class="link" href="mailto:hello@quickai.agency">hello@quickai.agency</a></li>
+              <li>Phone/WhatsApp: <a class="link" href="tel:+34677304620">+34 677 304 620</a></li>
+              <li>Or use our <a class="link" href="contact.html">Contact page</a></li>
+            </ul>
+          </div>
 
-                <div class="policy-section">
-                    <h2>6. Contact Us</h2>
-                    <p>If you have any questions about this Privacy Policy, please contact us via our contact page:</p>
-                    <p><a href="contact.html" class="text-link">Visit Contact Page</a></p>
-                </div>
-
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>AutoSureEstimator</h4>
-                    <p style="font-size: 0.9rem; color: #94a3b8;">Empowering US drivers with transparent, data-driven insurance cost insights.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact Support</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                        <li><a href="terms-of-service.html">Terms of Service</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2024 AutoSureEstimator. All rights reserved. <br>Disclaimer: This website is for informational purposes only and does not provide financial advice.</p>
-            </div>
         </div>
-    </footer>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>AutoSureEstimator</h4>
+          <p class="small">
+            Independent, privacy-first insurance estimators for educational purposes.
+            No quotes. No lead selling. Just clarity.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul class="small">
+            <li><a href="tools.html">Tools</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul class="small">
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="small">
+            <li><a href="mailto:hello@quickai.agency">hello@quickai.agency</a></li>
+            <li><a href="tel:+34677304620">+34 677 304 620</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="copyright">
+        © 2026 AutoSureEstimator. All rights reserved. Disclaimer: Informational estimates only — not financial or legal advice.
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
