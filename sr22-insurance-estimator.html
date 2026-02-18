@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-US">
+
 <head>
     <!-- Fonts (Inter) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,13 +13,16 @@
 
     <!-- SEO Meta Tags -->
     <title>SR-22 Insurance Cost Estimator (US) | AutoSureEstimator</title>
-    <meta name="description" content="Calculate the estimated cost of SR-22 insurance filings and associated high-risk premium increases. Understand SR-22 requirements by state and violation type.">
-    <meta name="keywords" content="SR-22 insurance cost, SR22 calculator, DUI insurance cost, certificate of financial responsibility, high risk auto insurance">
+    <meta name="description"
+        content="Calculate the estimated cost of SR-22 insurance filings and associated high-risk premium increases. Understand SR-22 requirements by state and violation type.">
+    <meta name="keywords"
+        content="SR-22 insurance cost, SR22 calculator, DUI insurance cost, certificate of financial responsibility, high risk auto insurance">
     <link rel="canonical" href="https://www.autosureestimator.com/sr22-insurance-estimator.html">
 
     <!-- OpenGraph Tags -->
     <meta property="og:title" content="SR-22 Insurance Estimator">
-    <meta property="og:description" content="Estimate the monthly cost impact of an SR-22 requirement. Free, independent tool for US drivers.">
+    <meta property="og:description"
+        content="Estimate the monthly cost impact of an SR-22 requirement. Free, independent tool for US drivers.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.autosureestimator.com/sr22-insurance-estimator.html">
     <meta property="og:site_name" content="AutoSureEstimator">
@@ -28,30 +32,46 @@
            DARK / TECH MINIMAL STYLE (MATCHED TO YOUR tools.html)
            ========================================================= */
 
-        :root{
+        :root {
             --bg: #050505;
             --surface: #0f0f10;
             --surface-2: #131315;
-            --border: rgba(255,255,255,0.08);
-            --border-strong: rgba(255,255,255,0.14);
+            --border: rgba(255, 255, 255, 0.08);
+            --border-strong: rgba(255, 255, 255, 0.14);
 
-            --text: #f4f4f5;     /* zinc-100 */
-            --muted: #a1a1aa;    /* zinc-400 */
-            --muted2: #71717a;   /* zinc-500 */
-            --muted3: #52525b;   /* zinc-600 */
+            --text: #f4f4f5;
+            /* zinc-100 */
+            --muted: #a1a1aa;
+            /* zinc-400 */
+            --muted2: #71717a;
+            /* zinc-500 */
+            --muted3: #52525b;
+            /* zinc-600 */
 
-            --blue: #3b82f6;     /* blue-500 */
-            --blue2: #2563eb;    /* blue-600 */
-            --warn: #f59e0b;     /* amber-500 */
-            --danger: #ef4444;   /* red-500 */
+            --blue: #3b82f6;
+            /* blue-500 */
+            --blue2: #2563eb;
+            /* blue-600 */
+            --warn: #f59e0b;
+            /* amber-500 */
+            --danger: #ef4444;
+            /* red-500 */
 
             --radius: 16px;
-            --shadow: 0 20px 40px -10px rgba(0,0,0,.55);
+            --shadow: 0 20px 40px -10px rgba(0, 0, 0, .55);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body{
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
             font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
             line-height: 1.6;
             background: var(--bg);
@@ -59,10 +79,18 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        a { text-decoration: none; color: inherit; transition: color .2s, opacity .2s; }
-        ul { list-style: none; }
 
-        .container{
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color .2s, opacity .2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
@@ -70,7 +98,7 @@
         }
 
         /* Noise layer (premium depth) */
-        .noise-bg{
+        .noise-bg {
             position: fixed;
             inset: 0;
             opacity: 0.03;
@@ -80,88 +108,107 @@
         }
 
         /* Glass nav */
-        header{
+        header {
             position: sticky;
             top: 0;
             z-index: 50;
-            background: rgba(5,5,5,0.7);
+            background: rgba(5, 5, 5, 0.7);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
         }
-        .nav-container{
-            display:flex;
+
+        .nav-container {
+            display: flex;
             justify-content: space-between;
-            align-items:center;
+            align-items: center;
             height: 64px;
         }
-        .brand{
-            display:flex;
-            align-items:center;
+
+        .brand {
+            display: flex;
+            align-items: center;
             gap: 10px;
         }
-        .brand-mark{
-            width: 26px; height: 26px;
+
+        .brand-mark {
+            width: 26px;
+            height: 26px;
             background: var(--blue2);
             border-radius: 8px;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            box-shadow: 0 0 12px rgba(37,99,235,.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 12px rgba(37, 99, 235, .45);
         }
-        .brand-mark::after{
-            content:"";
-            width: 12px; height: 12px;
-            background:#fff;
+
+        .brand-mark::after {
+            content: "";
+            width: 12px;
+            height: 12px;
+            background: #fff;
             border-radius: 4px;
-            display:block;
+            display: block;
         }
-        .logo{
+
+        .logo {
             font-weight: 700;
             letter-spacing: -0.2px;
             font-size: 14px;
             color: var(--text);
         }
 
-        .nav-links{
-            display:flex;
+        .nav-links {
+            display: flex;
             gap: 28px;
             font-size: 12px;
             font-weight: 600;
             color: var(--muted2);
         }
-        .nav-links a:hover{ color: #93c5fd; } /* blue-300-ish */
-        .nav-links a.active{ color: var(--text); }
 
-        @media (max-width: 768px){
-            .nav-links{ display:none; }
+        .nav-links a:hover {
+            color: #93c5fd;
+        }
+
+        /* blue-300-ish */
+        .nav-links a.active {
+            color: var(--text);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
         }
 
         /* Page header */
-        .page-header{
+        .page-header {
             padding: 76px 0 24px;
-            text-align:center;
+            text-align: center;
             position: relative;
             z-index: 10;
         }
 
-        .pill{
-            display:inline-flex;
-            align-items:center;
+        .pill {
+            display: inline-flex;
+            align-items: center;
             gap: 8px;
             padding: 6px 10px;
             border-radius: 999px;
-            border: 1px solid rgba(30,58,138,0.35);
-            background: rgba(30,58,138,0.12);
+            border: 1px solid rgba(30, 58, 138, 0.35);
+            background: rgba(30, 58, 138, 0.12);
             margin-bottom: 16px;
         }
-        .pill-dot{
-            width: 8px; height: 8px;
+
+        .pill-dot {
+            width: 8px;
+            height: 8px;
             border-radius: 999px;
             background: var(--blue);
             animation: pulse 1.4s infinite;
         }
-        .pill span{
+
+        .pill span {
             font-size: 10px;
             letter-spacing: 0.16em;
             text-transform: uppercase;
@@ -169,25 +216,36 @@
             color: #93c5fd;
         }
 
-        @keyframes pulse{
-            0%,100%{ opacity: .6; transform: scale(1); }
-            50%{ opacity: 1; transform: scale(1.25); }
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: .6;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.25);
+            }
         }
 
-        .page-header h1{
+        .page-header h1 {
             font-size: clamp(34px, 4.5vw, 56px);
             line-height: 1.05;
             letter-spacing: -0.04em;
             margin-bottom: 14px;
         }
-        .gradient-title{
+
+        .gradient-title {
             color: transparent;
             background: linear-gradient(90deg, #60a5fa, #3b82f6, #6366f1);
             -webkit-background-clip: text;
             background-clip: text;
-            filter: drop-shadow(0 1px 0 rgba(255,255,255,0.06));
+            filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.06));
         }
-        .subtitle{
+
+        .subtitle {
             max-width: 760px;
             margin: 0 auto;
             color: var(--muted);
@@ -195,81 +253,96 @@
             font-weight: 400;
         }
 
-        .disclaimer-box{
+        .disclaimer-box {
             margin: 22px auto 0;
             max-width: 860px;
             text-align: left;
-            background: rgba(15,15,16,0.75);
+            background: rgba(15, 15, 16, 0.75);
             border: 1px solid var(--border);
-            border-left: 4px solid rgba(245,158,11,0.9);
+            border-left: 4px solid rgba(245, 158, 11, 0.9);
             border-radius: 14px;
             padding: 14px 16px;
             color: var(--muted);
             font-size: 13px;
         }
-        .disclaimer-box strong{ color: #fbbf24; } /* amber-400 */
-        .disclaimer-box em{ color: #e5e7eb; }
+
+        .disclaimer-box strong {
+            color: #fbbf24;
+        }
+
+        /* amber-400 */
+        .disclaimer-box em {
+            color: #e5e7eb;
+        }
 
         /* Calculator layout */
-        .calc-wrap{
+        .calc-wrap {
             position: relative;
             z-index: 10;
             padding: 28px 0 10px;
         }
 
-        .calc-container{
-            display:grid;
+        .calc-container {
+            display: grid;
             grid-template-columns: 1.05fr 0.95fr;
             gap: 18px;
             align-items: start;
         }
 
-        @media (max-width: 900px){
-            .calc-container{ grid-template-columns: 1fr; }
+        @media (max-width: 900px) {
+            .calc-container {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* Card */
-        .card{
+        .card {
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 22px;
             padding: 18px;
             position: relative;
             overflow: hidden;
-            transition: transform .35s cubic-bezier(.16,1,.3,1), border-color .35s, background .35s, box-shadow .35s;
+            transition: transform .35s cubic-bezier(.16, 1, .3, 1), border-color .35s, background .35s, box-shadow .35s;
         }
-        .card:hover{
+
+        .card:hover {
             transform: translateY(-2px);
-            border-color: rgba(59,130,246,0.28);
+            border-color: rgba(59, 130, 246, 0.28);
             box-shadow: var(--shadow);
             background: var(--surface-2);
         }
 
-        .card-title{
-            display:flex;
-            align-items:center;
+        .card-title {
+            display: flex;
+            align-items: center;
             justify-content: space-between;
             gap: 12px;
             margin-bottom: 14px;
         }
-        .badge{
+
+        .badge {
             font-size: 10px;
             font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
             color: var(--muted3);
-            border: 1px solid rgba(255,255,255,0.10);
+            border: 1px solid rgba(255, 255, 255, 0.10);
             padding: 4px 6px;
             border-radius: 8px;
         }
-        .mini{
+
+        .mini {
             font-size: 12px;
             color: var(--muted2);
             font-weight: 600;
         }
 
         /* Form */
-        .form-group{ margin-bottom: 14px; }
-        .form-label{
-            display:block;
+        .form-group {
+            margin-bottom: 14px;
+        }
+
+        .form-label {
+            display: block;
             font-weight: 600;
             font-size: 12px;
             color: #e4e4e7;
@@ -277,90 +350,112 @@
             letter-spacing: 0.01em;
         }
 
-        .form-select{
-            width:100%;
+        .form-select {
+            width: 100%;
             padding: 12px 12px;
             border-radius: 14px;
-            border: 1px solid rgba(255,255,255,0.10);
-            background: rgba(9,9,11,0.7);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            background: rgba(9, 9, 11, 0.7);
             color: var(--text);
             font-size: 14px;
             outline: none;
             transition: border-color .2s, box-shadow .2s, background .2s;
         }
-        .form-select:focus{
-            border-color: rgba(59,130,246,0.45);
-            box-shadow: 0 0 0 4px rgba(59,130,246,0.10);
-            background: rgba(9,9,11,0.9);
-        }
-        .form-select option{ color: #111827; } /* options in many browsers render light */
 
-        .btn-calc{
-            width:100%;
+        .form-select:focus {
+            border-color: rgba(59, 130, 246, 0.45);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.10);
+            background: rgba(9, 9, 11, 0.9);
+        }
+
+        .form-select option {
+            color: #111827;
+        }
+
+        /* options in many browsers render light */
+
+        .btn-calc {
+            width: 100%;
             padding: 12px 14px;
             border-radius: 14px;
-            border: 1px solid rgba(255,255,255,0.10);
-            background: #f4f4f5; /* zinc-100 */
-            color: #09090b;      /* zinc-950 */
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            background: #f4f4f5;
+            /* zinc-100 */
+            color: #09090b;
+            /* zinc-950 */
             font-weight: 700;
             font-size: 14px;
-            cursor:pointer;
+            cursor: pointer;
             position: relative;
             overflow: hidden;
             transition: transform .2s, background .2s, color .2s, border-color .2s;
         }
-        .btn-calc:hover{
-            background: rgba(219,234,254,1); /* blue-50 */
-            color: #1d4ed8; /* blue-700 */
-            border-color: rgba(59,130,246,0.25);
+
+        .btn-calc:hover {
+            background: rgba(219, 234, 254, 1);
+            /* blue-50 */
+            color: #1d4ed8;
+            /* blue-700 */
+            border-color: rgba(59, 130, 246, 0.25);
         }
-        .btn-calc:active{ transform: translateY(1px); }
-        .btn-calc::after{
-            content:"";
-            position:absolute;
-            inset:0;
+
+        .btn-calc:active {
+            transform: translateY(1px);
+        }
+
+        .btn-calc::after {
+            content: "";
+            position: absolute;
+            inset: 0;
             transform: translateX(-120%);
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.16), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.16), transparent);
             transition: .55s;
         }
-        .btn-calc:hover::after{ transform: translateX(120%); }
+
+        .btn-calc:hover::after {
+            transform: translateX(120%);
+        }
 
         /* Results */
-        .result-placeholder{
-            background: rgba(9,9,11,0.35);
-            border: 1px dashed rgba(255,255,255,0.14);
+        .result-placeholder {
+            background: rgba(9, 9, 11, 0.35);
+            border: 1px dashed rgba(255, 255, 255, 0.14);
             border-radius: 22px;
             padding: 24px;
             min-height: 320px;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            text-align:center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             color: var(--muted);
         }
 
-        .result-box{
-            background: rgba(9,9,11,0.55);
-            border: 1px solid rgba(255,255,255,0.10);
+        .result-box {
+            background: rgba(9, 9, 11, 0.55);
+            border: 1px solid rgba(255, 255, 255, 0.10);
             border-radius: 22px;
             padding: 22px;
-            display:none;
+            display: none;
             flex-direction: column;
-            justify-content:center;
-            text-align:center;
+            justify-content: center;
+            text-align: center;
         }
-        .result-box.active{
-            display:flex;
+
+        .result-box.active {
+            display: flex;
             animation: fadeIn .55s ease;
         }
 
-        .result-row{
+        .result-row {
             padding: 18px 10px;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
-        .result-row:last-child{ border-bottom: none; }
 
-        .result-label{
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .result-label {
             font-size: 11px;
             color: var(--muted2);
             letter-spacing: .16em;
@@ -368,124 +463,158 @@
             margin-bottom: 8px;
             font-weight: 700;
         }
-        .result-amount{
+
+        .result-amount {
             font-size: 42px;
             font-weight: 800;
             line-height: 1.08;
             color: #ffffff;
             letter-spacing: -0.02em;
         }
-        .result-amount.danger{ color: #fb7185; } /* rose-ish */
-        .result-sub{
+
+        .result-amount.danger {
+            color: #fb7185;
+        }
+
+        /* rose-ish */
+        .result-sub {
             margin-top: 8px;
             font-size: 13px;
             color: var(--muted);
         }
 
-        .hint{
+        .hint {
             font-size: 12px;
             color: var(--muted2);
             margin-top: 10px;
         }
 
         /* Content blocks */
-        .section{
+        .section {
             padding: 54px 0 10px;
             position: relative;
             z-index: 10;
         }
-        .content-block{ margin-bottom: 30px; }
-        .content-block h2{
+
+        .content-block {
+            margin-bottom: 30px;
+        }
+
+        .content-block h2 {
             font-size: 22px;
             letter-spacing: -0.02em;
             margin-bottom: 12px;
             color: #e4e4e7;
         }
-        .content-block p, .content-block li{
+
+        .content-block p,
+        .content-block li {
             color: var(--muted);
             font-size: 14px;
         }
 
-        .info-grid{
-            display:grid;
+        .info-grid {
+            display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 14px;
             margin-top: 14px;
         }
-        .info-card{
-            background: rgba(15,15,16,0.65);
+
+        .info-card {
+            background: rgba(15, 15, 16, 0.65);
             border: 1px solid var(--border);
             border-radius: 18px;
             padding: 16px;
         }
-        .info-card h4{
+
+        .info-card h4 {
             color: #93c5fd;
             font-size: 13px;
             margin-bottom: 8px;
             letter-spacing: 0.01em;
         }
 
-        details{
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+        details {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             padding: 14px 0;
         }
-        details summary{
-            cursor:pointer;
-            display:flex;
+
+        details summary {
+            cursor: pointer;
+            display: flex;
             justify-content: space-between;
-            align-items:center;
+            align-items: center;
             font-weight: 700;
             color: #e4e4e7;
             font-size: 14px;
             list-style: none;
         }
-        details summary::after{
-            content:"+";
+
+        details summary::after {
+            content: "+";
             font-size: 18px;
             color: var(--muted2);
         }
-        details[open] summary::after{ content:"-"; }
-        details p{
+
+        details[open] summary::after {
+            content: "-";
+        }
+
+        details p {
             margin-top: 10px;
             color: var(--muted);
             font-size: 14px;
         }
 
         /* Footer */
-        footer{
+        footer {
             margin-top: 44px;
-            border-top: 1px solid rgba(255,255,255,0.08);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
             padding: 28px 0 30px;
             color: var(--muted2);
             position: relative;
             z-index: 10;
         }
-        .footer-grid{
-            display:grid;
+
+        .footer-grid {
+            display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 18px;
             margin-bottom: 18px;
         }
-        .footer-col h4{
+
+        .footer-col h4 {
             color: #e4e4e7;
             margin-bottom: 10px;
             font-size: 13px;
         }
-        .footer-col a:hover{ color: #93c5fd; }
-        .copyright{
+
+        .footer-col a:hover {
+            color: #93c5fd;
+        }
+
+        .copyright {
             padding-top: 14px;
-            border-top: 1px solid rgba(255,255,255,0.06);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
             font-size: 12px;
-            text-align:center;
+            text-align: center;
             color: var(--muted3);
         }
 
-        @keyframes fadeIn{
-            from{ opacity: 0; transform: translateY(10px); }
-            to{ opacity: 1; transform: translateY(0); }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
+
 <body>
 
     <div class="noise-bg"></div>
@@ -529,11 +658,14 @@
                 </h1>
 
                 <p class="subtitle">
-                    Understand the costs associated with an SR-22 “Certificate of Financial Responsibility.” Estimate premium increases based on your state, violation, and coverage.
+                    Understand the costs associated with an SR-22 “Certificate of Financial Responsibility.” Estimate
+                    premium increases based on your state, violation, and coverage.
                 </p>
 
                 <div class="disclaimer-box">
-                    <strong>Important:</strong> An SR-22 is not a type of insurance policy; it is a document your insurer files with the state to prove you have coverage. The costs shown here reflect the <em>increase</em> in premiums due to the violation that triggered the requirement.
+                    <strong>Important:</strong> An SR-22 is not a type of insurance policy; it is a document your
+                    insurer files with the state to prove you have coverage. The costs shown here reflect the
+                    <em>increase</em> in premiums due to the violation that triggered the requirement.
                 </div>
             </div>
         </section>
@@ -551,6 +683,29 @@
                                 <div class="hint">Choose options to generate a monthly range.</div>
                             </div>
                             <span class="badge">v1 • US</span>
+                            <!-- Manual mode toggle -->
+                            <div class="form-group" style="margin-top:6px;">
+                                <label class="form-label"
+                                    style="display:flex;align-items:center;gap:10px;cursor:pointer;">
+                                    <input id="manualMode" type="checkbox"
+                                        style="width:16px;height:16px;accent-color:#3b82f6;">
+                                    <span>Use my current premium (manual)</span>
+                                </label>
+                                <div class="hint" style="margin-top:6px;">
+                                    If you know what you pay today, we’ll estimate the SR-22 increase from that number
+                                    (more accurate).
+                                </div>
+                            </div>
+                            <!-- Manual premium input -->
+                            <div id="manualWrap" class="form-group" style="display:none;">
+                                <label class="form-label" for="currentPremium">Your current monthly premium
+                                    (USD)</label>
+                                <input id="currentPremium" type="number" inputmode="decimal" min="10" step="1"
+                                    placeholder="e.g., 165" class="form-select" style="appearance:none;" />
+                                <div class="hint">Enter what you pay now (before SR-22). We’ll calculate the increase
+                                    range.</div>
+                            </div>
+
                         </div>
 
                         <div class="form-group">
@@ -651,49 +806,67 @@
                     <div class="info-grid">
                         <div class="info-card">
                             <h4>The Filing Fee</h4>
-                            <p>Insurance companies typically charge a one-time fee of <strong>$15 to $50</strong> to file the SR-22 document with your state's DMV. This is separate from your premium.</p>
+                            <p>Insurance companies typically charge a one-time fee of <strong>$15 to $50</strong> to
+                                file the SR-22 document with your state's DMV. This is separate from your premium.</p>
                         </div>
                         <div class="info-card">
                             <h4>How Long Does It Last?</h4>
-                            <p>In most states, you must maintain the SR-22 on file for <strong>3 years</strong>. If your policy lapses during this time, the insurer is legally required to notify the DMV, which usually results in immediate license suspension.</p>
+                            <p>In most states, you must maintain the SR-22 on file for <strong>3 years</strong>. If your
+                                policy lapses during this time, the insurer is legally required to notify the DMV, which
+                                usually results in immediate license suspension.</p>
                         </div>
                         <div class="info-card">
                             <h4>Non-Owner SR-22</h4>
-                            <p>If you need to reinstate your license but do not own a car, you can purchase a "Non-Owner SR-22 Policy." This provides liability coverage for any car you drive and satisfies the state requirement, often at a lower cost.</p>
+                            <p>If you need to reinstate your license but do not own a car, you can purchase a "Non-Owner
+                                SR-22 Policy." This provides liability coverage for any car you drive and satisfies the
+                                state requirement, often at a lower cost.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="content-block">
                     <h2>Methodology</h2>
-                    <p>Our SR-22 estimator calculates a "Standard" base premium for your age and location, then applies a "High-Risk Multiplier" based on the violation type selected (e.g., a DUI typically triggers a 100-200% rate increase). The "Extra Monthly Cost" displayed is the difference between a standard driver's rate and the high-risk rate.</p>
+                    <p>Our SR-22 estimator calculates a "Standard" base premium for your age and location, then applies
+                        a "High-Risk Multiplier" based on the violation type selected (e.g., a DUI typically triggers a
+                        100-200% rate increase). The "Extra Monthly Cost" displayed is the difference between a standard
+                        driver's rate and the high-risk rate.</p>
                 </div>
 
                 <div class="content-block">
                     <h2>Frequently Asked Questions</h2>
                     <details>
                         <summary>What is an SR-22?</summary>
-                        <p>It is not insurance. It is a certificate (form) your insurance company files with the state to verify that you have the minimum required liability insurance. It is usually required after serious traffic violations.</p>
+                        <p>It is not insurance. It is a certificate (form) your insurance company files with the state
+                            to verify that you have the minimum required liability insurance. It is usually required
+                            after serious traffic violations.</p>
                     </details>
                     <details>
                         <summary>What is an FR-44?</summary>
-                        <p>Florida and Virginia use a form called FR-44 for DUI/DWI convictions. The FR-44 requirement usually mandates much higher liability limits (e.g., 100/300/50) than a standard SR-22, making it significantly more expensive.</p>
+                        <p>Florida and Virginia use a form called FR-44 for DUI/DWI convictions. The FR-44 requirement
+                            usually mandates much higher liability limits (e.g., 100/300/50) than a standard SR-22,
+                            making it significantly more expensive.</p>
                     </details>
                     <details>
                         <summary>Can I hide my SR-22 status from my insurance company?</summary>
-                        <p>No. You cannot file it yourself. Your insurance carrier must file it for you. This alerts them to your driving record, which causes them to re-evaluate your rate.</p>
+                        <p>No. You cannot file it yourself. Your insurance carrier must file it for you. This alerts
+                            them to your driving record, which causes them to re-evaluate your rate.</p>
                     </details>
                     <details>
                         <summary>What happens if I stop paying my insurance?</summary>
-                        <p>The insurance company sends an SR-26 form to the state DMV, notifying them that your coverage has lapsed. Your license will likely be suspended again immediately.</p>
+                        <p>The insurance company sends an SR-26 form to the state DMV, notifying them that your coverage
+                            has lapsed. Your license will likely be suspended again immediately.</p>
                     </details>
                     <details>
                         <summary>Do all companies offer SR-22 filings?</summary>
-                        <p>No. Some "preferred" carriers (like USAA or Amica) may decline to cover high-risk drivers. You may need to shop with carriers that specialize in high-risk policies, such as The General, Progressive, or specialized local brokers.</p>
+                        <p>No. Some "preferred" carriers (like USAA or Amica) may decline to cover high-risk drivers.
+                            You may need to shop with carriers that specialize in high-risk policies, such as The
+                            General, Progressive, or specialized local brokers.</p>
                     </details>
                     <details>
                         <summary>Does the SR-22 requirement expire?</summary>
-                        <p>Yes. Typically after 3 years of continuous coverage (statutes vary by state). Once the period ends, you can call your insurer to remove the filing, and your rates should eventually decrease.</p>
+                        <p>Yes. Typically after 3 years of continuous coverage (statutes vary by state). Once the period
+                            ends, you can call your insurer to remove the filing, and your rates should eventually
+                            decrease.</p>
                     </details>
                 </div>
 
@@ -708,7 +881,8 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <h4>AutoSureEstimator</h4>
-                    <p style="font-size: 12px; color: #71717a;">Empowering US drivers with transparent, data-driven insurance cost insights.</p>
+                    <p style="font-size: 12px; color: #71717a;">Empowering US drivers with transparent, data-driven
+                        insurance cost insights.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Company</h4>
@@ -727,7 +901,8 @@
             </div>
             <div class="copyright">
                 <p>&copy; 2024 AutoSureEstimator. All rights reserved.<br>
-                Disclaimer: This website is for informational purposes only and does not provide financial advice.</p>
+                    Disclaimer: This website is for informational purposes only and does not provide financial advice.
+                </p>
             </div>
         </div>
     </footer>
@@ -789,4 +964,5 @@
         }
     </script>
 </body>
+
 </html>
