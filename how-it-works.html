@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <!-- Fonts (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- SEO -->
+  <title>How It Works | AutoSureEstimator</title>
+  <meta name="description" content="Learn how AutoSureEstimator generates educational insurance cost ranges, what inputs affect results, and why estimates differ from real quotes.">
+  <meta name="keywords" content="how insurance estimators work, car insurance estimate methodology, SR-22 estimator explanation, premium range calculator">
+  <link rel="canonical" href="https://www.autosureestimator.com/how-it-works.html">
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="How It Works | AutoSureEstimator">
+  <meta property="og:description" content="Understand our estimate methodology, inputs, and why quotes vary by carrier and driver profile.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.autosureestimator.com/how-it-works.html">
+  <meta property="og:site_name" content="AutoSureEstimator">
+
+  <style>
+    :root{
+      --bg:#050505;
+      --surface:#0f0f10;
+      --surface2:#131315;
+      --border:rgba(255,255,255,.08);
+      --border2:rgba(255,255,255,.14);
+
+      --text:#f4f4f5;
+      --muted:#a1a1aa;
+      --muted2:#71717a;
+      --muted3:#52525b;
+
+      --blue:#3b82f6;
+      --blue2:#2563eb;
+      --amber:#f59e0b;
+
+      --shadow:0 20px 40px -10px rgba(0,0,0,.55);
+      --r:16px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit;transition:color .2s,opacity .2s}
+    ul{list-style:none}
+
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+
+    /* Noise layer */
+    .noise-bg{
+      position:fixed; inset:0;
+      opacity:.03;
+      pointer-events:none;
+      z-index:5;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* Header/Nav */
+    header{
+      position:sticky; top:0; z-index:50;
+      background:rgba(5,5,5,.70);
+      backdrop-filter:blur(20px);
+      -webkit-backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--border);
+    }
+    .nav-container{
+      height:64px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand-mark{
+      width:26px;height:26px;
+      background:var(--blue2);
+      border-radius:8px;
+      box-shadow:0 0 12px rgba(37,99,235,.45);
+      display:flex;align-items:center;justify-content:center;
+    }
+    .brand-mark::after{
+      content:"";
+      width:12px;height:12px;
+      background:#fff;border-radius:4px;display:block;
+    }
+    .logo{
+      font-weight:700;
+      letter-spacing:-.2px;
+      font-size:14px;
+      color:var(--text);
+    }
+    .nav-links{
+      display:flex;gap:28px;
+      font-size:12px;font-weight:600;
+      color:var(--muted2);
+    }
+    .nav-links a:hover{color:#93c5fd}
+    .nav-links a.active{color:var(--text)}
+    .mini{font-size:12px;color:var(--muted2);font-weight:600}
+    .mini:hover{color:#93c5fd}
+    @media(max-width:768px){.nav-links{display:none}}
+
+    /* Hero */
+    .hero{
+      padding:78px 0 22px;
+      text-align:center;
+      position:relative;
+      z-index:10;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(30,58,138,.35);
+      background:rgba(30,58,138,.12);
+      margin-bottom:16px;
+    }
+    .pill-dot{
+      width:8px;height:8px;border-radius:999px;background:var(--blue);
+      animation:pulse 1.4s infinite;
+    }
+    .pill span{
+      font-size:10px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      font-weight:700;
+      color:#93c5fd;
+    }
+    @keyframes pulse{
+      0%,100%{opacity:.6;transform:scale(1)}
+      50%{opacity:1;transform:scale(1.25)}
+    }
+    h1{
+      font-size:clamp(34px,4.5vw,58px);
+      line-height:1.05;
+      letter-spacing:-.04em;
+      margin-bottom:14px;
+    }
+    .gradient{
+      color:transparent;
+      background:linear-gradient(90deg,#60a5fa,#3b82f6,#6366f1);
+      -webkit-background-clip:text;
+      background-clip:text;
+      filter:drop-shadow(0 1px 0 rgba(255,255,255,.06));
+    }
+    .subtitle{
+      max-width:860px;
+      margin:0 auto;
+      color:var(--muted);
+      font-size:16px;
+    }
+
+    /* Layout blocks */
+    .section{
+      padding:34px 0 10px;
+      position:relative;
+      z-index:10;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      gap:16px;
+      margin-top:18px;
+    }
+    .card{
+      grid-column:span 12;
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:18px;
+      transition:transform .35s cubic-bezier(.16,1,.3,1), border-color .35s, background .35s, box-shadow .35s;
+    }
+    .card:hover{
+      transform:translateY(-2px);
+      border-color:rgba(59,130,246,.28);
+      box-shadow:var(--shadow);
+      background:var(--surface2);
+    }
+    @media(min-width:900px){
+      .half{grid-column:span 6}
+      .third{grid-column:span 4}
+    }
+
+    .card h2{
+      font-size:20px;
+      letter-spacing:-.02em;
+      margin-bottom:10px;
+      color:#e4e4e7;
+    }
+    .card p,.card li{color:var(--muted);font-size:14px}
+    .list{margin-top:10px;display:grid;gap:8px}
+    .list li{
+      background:rgba(9,9,11,.35);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:14px;
+      padding:10px 12px;
+    }
+
+    .notice{
+      background:rgba(15,15,16,.75);
+      border:1px solid var(--border);
+      border-left:4px solid rgba(245,158,11,.9);
+      border-radius:14px;
+      padding:14px 16px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .notice strong{color:#fbbf24}
+    .notice em{color:#e5e7eb}
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-top:10px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(9,9,11,.45);
+      color:var(--muted2);
+      font-size:12px;
+      font-weight:600;
+    }
+    .badge b{color:#93c5fd}
+
+    .cta{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+    .btn{
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      font-weight:800;
+      font-size:13px;
+      transition:.2s;
+    }
+    .btn.primary{
+      background:#f4f4f5;
+      color:#09090b;
+    }
+    .btn.primary:hover{
+      background:#dbeafe;
+      color:#1d4ed8;
+      border-color:rgba(59,130,246,.25);
+    }
+    .btn.ghost{
+      background:rgba(9,9,11,.35);
+      color:#e4e4e7;
+      border-color:rgba(255,255,255,.10);
+    }
+    .btn.ghost:hover{border-color:rgba(255,255,255,.22)}
+
+    details{
+      border-bottom:1px solid rgba(255,255,255,.08);
+      padding:14px 0;
+    }
+    summary{
+      cursor:pointer;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      font-weight:700;
+      color:#e4e4e7;
+      font-size:14px;
+      list-style:none;
+    }
+    summary::after{content:"+";font-size:18px;color:var(--muted2)}
+    details[open] summary::after{content:"-"}
+    details p{margin-top:10px;color:var(--muted);font-size:14px}
+
+    /* Footer */
+    footer{
+      margin-top:44px;
+      border-top:1px solid rgba(255,255,255,.08);
+      padding:28px 0 30px;
+      color:var(--muted2);
+      position:relative;
+      z-index:10;
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:18px;
+      margin-bottom:18px;
+    }
+    .footer-col h4{
+      color:#e4e4e7;
+      margin-bottom:10px;
+      font-size:13px;
+    }
+    .footer-col a:hover{color:#93c5fd}
+    .copyright{
+      padding-top:14px;
+      border-top:1px solid rgba(255,255,255,.06);
+      font-size:12px;
+      text-align:center;
+      color:var(--muted3);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="noise-bg"></div>
+
+  <!-- Navigation -->
+  <header>
+    <div class="container nav-container">
+      <a href="tools.html" class="brand" aria-label="AutoSureEstimator">
+        <div class="brand-mark"></div>
+        <span class="logo">AutoSure</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="tools.html">Home</a></li>
+          <li><a href="tools.html">Tools</a></li>
+          <li><a class="active" href="how-it-works.html">How It Works</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a href="tools.html" class="mini">Resources</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="pill">
+          <span class="pill-dot"></span>
+          <span>Methodology</span>
+        </div>
+
+        <h1><span class="gradient">How AutoSureEstimator Works</span></h1>
+        <p class="subtitle">
+          We generate educational insurance cost ranges using a transparent multiplier model. Real quotes vary by carrier, underwriting, ZIP, vehicle, credit (where allowed), and driving history.
+        </p>
+
+        <div class="notice" style="margin:22px auto 0;max-width:920px;text-align:left;">
+          <strong>Important:</strong> This site is <em>not</em> an insurance company, broker, or agent.
+          We don’t sell personal data or request sensitive identifiers (VIN, SSN, phone). Results are informational ranges.
+        </div>
+      </div>
+    </section>
+
+    <!-- Core explanation -->
+    <section class="section">
+      <div class="container">
+        <div class="grid">
+          <div class="card half">
+            <h2>1) Inputs (what you select)</h2>
+            <p>Your selections create a risk profile. Each tool uses only non-identifying inputs.</p>
+            <ul class="list">
+              <li><b style="color:#e4e4e7;">State factor</b> — legal environment & baseline pricing differences.</li>
+              <li><b style="color:#e4e4e7;">Violation factor</b> — DUI, no insurance, suspension, etc.</li>
+              <li><b style="color:#e4e4e7;">Age factor</b> — broad risk bands (not exact age).</li>
+              <li><b style="color:#e4e4e7;">Coverage factor</b> — minimum vs standard vs full coverage.</li>
+            </ul>
+            <span class="badge"><b>Privacy:</b> we don’t ask VIN/SSN/phone/email</span>
+          </div>
+
+          <div class="card half">
+            <h2>2) Model (how the range is computed)</h2>
+            <p>
+              We start from a baseline annual premium and apply multipliers. Then we generate a low/high range to reflect uncertainty.
+            </p>
+            <ul class="list">
+              <li><b style="color:#e4e4e7;">Baseline annual</b> × state × age × coverage</li>
+              <li><b style="color:#e4e4e7;">High-risk tools</b> also apply a violation multiplier (SR-22, DUI, etc.)</li>
+              <li><b style="color:#e4e4e7;">Range</b> is shown as ±15% to avoid fake precision</li>
+            </ul>
+            <span class="badge"><b>Goal:</b> realistic bands, not exact quotes</span>
+          </div>
+
+          <div class="card">
+            <h2>Why your real quote can be different</h2>
+            <p>Carriers price differently. Two drivers with identical basics can still get different quotes because of underwriting and local variables.</p>
+            <div class="grid" style="margin-top:14px;">
+              <div class="card third" style="padding:14px;border-radius:18px;">
+                <h2 style="font-size:16px;margin-bottom:8px;">ZIP & garaging</h2>
+                <p>Crime, theft, weather, claim frequency, repair costs.</p>
+              </div>
+              <div class="card third" style="padding:14px;border-radius:18px;">
+                <h2 style="font-size:16px;margin-bottom:8px;">Vehicle</h2>
+                <p>Model, trim, safety tech, repairability, theft risk.</p>
+              </div>
+              <div class="card third" style="padding:14px;border-radius:18px;">
+                <h2 style="font-size:16px;margin-bottom:8px;">History</h2>
+                <p>Tickets, accidents, lapses in coverage, prior limits.</p>
+              </div>
+            </div>
+
+            <div class="cta">
+              <a class="btn primary" href="sr22-insurance-estimator.html">Open SR-22 Tool</a>
+              <a class="btn ghost" href="tools.html">Back to Tools</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SR-22 specific explanation -->
+    <section class="section">
+      <div class="container">
+        <div class="grid">
+          <div class="card half">
+            <h2>SR-22: what the estimator shows</h2>
+            <p>
+              SR-22 is not insurance. It’s a filing. The cost impact comes from being rated as high-risk after the triggering violation.
+            </p>
+            <ul class="list">
+              <li><b style="color:#e4e4e7;">Estimated monthly increase</b> — difference between clean rate and high-risk rate.</li>
+              <li><b style="color:#e4e4e7;">Total monthly premium</b> — clean base + high-risk surcharge.</li>
+              <li><b style="color:#e4e4e7;">Filing fee</b> — typically a small one-time carrier fee.</li>
+            </ul>
+          </div>
+
+          <div class="card half">
+            <h2>SR-22: how to interpret results</h2>
+            <p>Use the range as a planning tool (budgeting), then compare real quotes from carriers in your state.</p>
+            <ul class="list">
+              <li>Use the <b style="color:#e4e4e7;">low end</b> as “best case”</li>
+              <li>Use the <b style="color:#e4e4e7;">high end</b> as “stress test”</li>
+              <li>Expect variation by carrier (preferred vs high-risk specialists)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" style="padding-bottom:30px;">
+      <div class="container">
+        <div class="card">
+          <h2>FAQ</h2>
+
+          <details>
+            <summary>Do you collect personal data?</summary>
+            <p>No. Our tools are built to work without VIN, SSN, phone, email, or any sensitive identifier.</p>
+          </details>
+
+          <details>
+            <summary>Is this an exact quote?</summary>
+            <p>No. We provide educational ranges. Final pricing depends on underwriting, carrier rules, and your full profile.</p>
+          </details>
+
+          <details>
+            <summary>Why show a range instead of one number?</summary>
+            <p>Because insurance is variable. Ranges are more honest than fake precision.</p>
+          </details>
+
+          <details>
+            <summary>Can I use this to choose coverage?</summary>
+            <p>Use it to understand cost impact, then speak with a licensed professional for coverage decisions.</p>
+          </details>
+
+          <div class="cta">
+            <a class="btn primary" href="tools.html">See All Tools</a>
+            <a class="btn ghost" href="sr22-insurance-estimator.html">Go to SR-22</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>AutoSureEstimator</h4>
+          <p style="font-size:12px;color:#71717a;">
+            Independent, educational tools for understanding insurance cost drivers.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2026 AutoSureEstimator. All rights reserved.<br>
+          Disclaimer: This website is for informational purposes only and does not provide financial advice.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
