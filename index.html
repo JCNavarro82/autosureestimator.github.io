@@ -1,412 +1,466 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <!-- Global Dark Theme (same as tools.html) -->
-    <link rel="stylesheet" href="dark.css">
+  <!-- SEO Meta Tags -->
+  <title>AutoSureEstimator | Independent Car Insurance Cost Estimator</title>
+  <meta name="description" content="Free, independent car insurance cost estimation tools for US drivers. Calculate ranges based on risk factors, driving history, and state averages. No personal data sold.">
+  <meta name="keywords" content="car insurance estimator, auto insurance cost calculator, insurance rates US, SR22 insurance cost, teen driver insurance estimate">
+  <link rel="canonical" href="https://autosureestimator.com/">
 
-    <!-- Font (optional, consistent) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-      body{ font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-    </style>
+  <!-- OpenGraph Tags -->
+  <meta property="og:title" content="AutoSureEstimator | Independent Car Insurance Estimator">
+  <meta property="og:description" content="Calculate typical insurance cost ranges without sales calls. Trustworthy, data-backed estimates for US drivers.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://autosureestimator.com/">
+  <meta property="og:site_name" content="AutoSureEstimator">
 
-    <!-- SEO Meta Tags -->
-    <title>AutoSureEstimator | Independent Car Insurance Cost Estimator</title>
-    <meta name="description" content="Free, independent car insurance cost estimation tools for US drivers. Calculate ranges based on risk factors, driving history, and state averages. No personal data sold.">
-    <meta name="keywords" content="car insurance estimator, auto insurance cost calculator, insurance rates US, SR22 insurance cost, teen driver insurance estimate">
-    <link rel="canonical" href="https://autosureestimator.com/">
+  <!-- Fonts + Dark Theme -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dark.css">
 
-    <!-- OpenGraph Tags -->
-    <meta property="og:title" content="AutoSureEstimator | Independent Car Insurance Estimator">
-    <meta property="og:description" content="Calculate typical insurance cost ranges without sales calls. Trustworthy, data-backed estimates for US drivers.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://autosureestimator.com/">
-    <meta property="og:site_name" content="AutoSureEstimator">
+  <style>
+    /* Base */
+    body { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    *{ box-sizing:border-box; }
+    a{ text-decoration:none; }
+    ul{ list-style:none; padding:0; margin:0; }
 
-    <!-- Minimal page-specific layout helpers (NO colors, let dark.css handle theme) -->
-    <style>
-      .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-      .section-padding { padding: 60px 0; }
-      .text-center { text-align: center; }
+    .container{ width:100%; max-width:1200px; margin:0 auto; padding:0 20px; }
+    .section{ padding: 72px 0; }
+    .muted{ color: var(--muted) !important; }
+    .muted2{ color: var(--muted2) !important; }
 
-      /* Hero spacing (theme colors come from dark.css) */
-      .hero { padding: 90px 0 60px; text-align: center; }
-      .hero h1 { font-size: clamp(2rem, 3.2vw, 3rem); line-height: 1.1; margin-bottom: 18px; }
-      .hero p { font-size: 1.125rem; max-width: 720px; margin: 0 auto 28px; }
-
-      .btn-group { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 34px; }
-      .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 26px; border-radius: 14px; font-weight: 700; text-decoration: none; }
-
-      /* These classes exist in your old CSS; we keep names but let dark.css style base */
-      .btn-primary { }
-      .btn-outline { }
-
-      /* Trust box layout (no white backgrounds here) */
-      .trust-box {
-        display: flex;
-        gap: 18px;
-        align-items: flex-start;
-        justify-content: center;
-        max-width: 980px;
-        margin: 0 auto;
-        padding: 22px;
-        border-radius: 18px;
-      }
-      .trust-icon { width: 42px; height: 42px; flex: 0 0 42px; }
-      .trust-content h3 { margin: 0 0 6px; font-size: 1.05rem; }
-      .trust-content p { margin: 0; }
-
-      /* Quick nav grid */
-      .quick-nav { max-width: 1100px; margin: 28px auto 0; padding: 26px; border-radius: 18px; }
-      .quick-nav h2 { margin: 0 0 8px; font-size: 1.6rem; }
-      .quick-nav p { margin: 0 0 16px; }
-      .quick-nav-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
-      .quick-nav-grid a { display: block; padding: 12px 14px; border-radius: 14px; font-weight: 700; }
-      .quick-nav-grid small { display: block; margin-top: 4px; font-weight: 500; opacity: .85; }
-
-      /* Sections */
-      .section-title { font-size: 2rem; margin-bottom: 34px; text-align: center; }
-      .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-      .step-card { padding: 18px; border-radius: 18px; }
-      .step-number { width: 44px; height: 44px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; font-weight: 800; margin-bottom: 14px; }
-
-      .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
-      .tool-card { display: block; padding: 22px; border-radius: 18px; text-decoration: none; }
-      .tool-icon { width: 44px; height: 44px; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 14px; }
-      .tool-card h3 { margin: 0 0 8px; }
-      .tool-card p { margin: 0 0 14px; }
-      .tool-link { font-weight: 800; }
-
-      .faq-section { max-width: 860px; margin: 0 auto; }
-      details { padding: 16px 0; }
-      details summary { cursor: pointer; font-weight: 800; display: flex; justify-content: space-between; align-items: center; list-style: none; }
-      details summary::-webkit-details-marker { display: none; }
-      details summary::after { content: "+"; font-size: 1.5rem; opacity: .75; }
-      details[open] summary::after { content: "-"; }
-      details p { margin-top: 10px; }
-
-      @media (max-width: 768px){
-        .btn{ width: 100%; }
-        .trust-box{ flex-direction: column; text-align: left; }
-      }
-    </style>
-
-    <!-- FAQ Schema (JSON-LD for Google) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Are these estimates official insurance quotes?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. AutoSureEstimator provides educational cost ranges based on aggregated market data and common risk factors. We are not an insurance carrier, broker, or agent. For a binding quote, you must contact a licensed insurer or agent."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do I need to enter my personal information?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. Our tools are designed to be anonymous. We do not require your name, phone number, email address, VIN, or Social Security number to generate an estimate."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Why is the estimated range so wide?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Insurance pricing varies by many factors including ZIP code, driving history, vehicle trim, coverage limits, deductibles, credit-based insurance score (where permitted), and carrier underwriting. We show a range to reflect these real-world differences without collecting private data."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Are these tools free to use?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. All calculators on AutoSureEstimator are free to use for informational purposes."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you sell insurance or sell my data?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. AutoSureEstimator does not sell insurance products and does not sell personal data. The site is built to help you understand typical price ranges before you shop."
-          }
-        }
-      ]
+    /* NAV */
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-    </script>
+    .nav-wrap{
+      height: 72px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 0 20px;
+    }
+    .nav-inner{
+      border-bottom: 1px solid var(--border);
+    }
+    .logo{
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--text) !important;
+      font-size: 1.25rem;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .nav-links{
+      display:flex;
+      gap: 22px;
+      align-items:center;
+    }
+    .nav-links a{
+      color: var(--muted) !important;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 8px 10px;
+      border-radius: 10px;
+      transition: .15s ease;
+    }
+    .nav-links a:hover{
+      color: var(--text) !important;
+      background: rgba(255,255,255,.06);
+    }
+
+    @media (max-width: 860px){
+      .nav-links{ display:none; }
+    }
+
+    /* HERO */
+    .hero{
+      padding: 90px 0 40px;
+      text-align:center;
+    }
+    .hero h1{
+      color: var(--text);
+      font-size: clamp(2.1rem, 4vw, 3.2rem);
+      line-height: 1.1;
+      margin: 0 0 14px;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+    }
+    .hero p{
+      max-width: 760px;
+      margin: 0 auto 26px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.8rem;
+      margin-bottom: 14px;
+      background: rgba(255,255,255,.03);
+    }
+    .btn-row{
+      display:flex;
+      gap: 14px;
+      justify-content:center;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      transition: .15s ease;
+      min-width: 170px;
+    }
+    .btn.primary{
+      background: var(--text);
+      color: #0a0a0a !important;
+    }
+    .btn.primary:hover{ background:#e5e7eb; }
+    .btn.ghost{
+      background: rgba(255,255,255,.03);
+      color: var(--text) !important;
+    }
+    .btn.ghost:hover{ background: rgba(255,255,255,.06); }
+
+    /* TRUST BOX */
+    .trust{
+      margin: 28px auto 0;
+      max-width: 980px;
+      padding: 18px 18px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      display:flex;
+      gap: 14px;
+      align-items:flex-start;
+      text-align:left;
+    }
+    .trust .icon{
+      width: 40px; height: 40px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.06);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex: 0 0 auto;
+    }
+    .trust h3{
+      margin: 0 0 4px;
+      color: var(--text);
+      font-size: 1rem;
+      font-weight: 800;
+    }
+    .trust p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    /* TOOLS GRID (cards) */
+    .section-title{
+      text-align:center;
+      margin: 0 0 28px;
+      color: var(--text);
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.4px;
+    }
+    .tools-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .card{
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      transition: .15s ease;
+      min-height: 190px;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+    .card:hover{
+      background: rgba(255,255,255,.06);
+      transform: translateY(-2px);
+    }
+    .card .top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+    }
+    .badge{
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--muted2);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: rgba(255,255,255,.02);
+    }
+    .card h3{
+      margin: 0;
+      color: var(--text);
+      font-weight: 800;
+      font-size: 1.05rem;
+    }
+    .card p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+    .card .link{
+      margin-top:auto;
+      font-weight: 800;
+      color: var(--blue2);
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      font-size: 0.92rem;
+    }
+    .card .link:hover{ color: var(--blue); }
+
+    /* FOOTER */
+    footer{
+      margin-top: 70px;
+      padding: 36px 0 26px;
+      border-top: 1px solid var(--border);
+      background: transparent;
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+    .footer-grid h4{
+      color: var(--text);
+      margin: 0 0 10px;
+      font-size: 1rem;
+      font-weight: 800;
+    }
+    .footer-grid a{ color: var(--muted) !important; }
+    .footer-grid a:hover{ color: var(--text) !important; }
+    .copyright{
+      color: var(--muted2);
+      font-size: 0.9rem;
+      text-align:center;
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+    }
+  </style>
+
+  <!-- FAQ Schema (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Are these estimates official insurance quotes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. AutoSureEstimator provides educational cost ranges based on aggregated market data and common risk factors. We are not an insurance carrier, broker, or agent. For a binding quote, you must contact a licensed insurer or agent."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to enter my personal information?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Our tools are designed to be anonymous. We do not require your name, phone number, email address, VIN, or Social Security number to generate an estimate."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you sell insurance or sell my data?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. AutoSureEstimator does not sell insurance products and does not sell personal data. The site is built to help you understand typical price ranges before you shop."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
 
-    <!-- Navigation (keep as-is; dark.css will theme it) -->
-    <header>
-        <div class="container nav-container">
-            <a href="index.html" class="logo">AutoSureEstimator</a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#tools">Tools</a></li>
-                    <li><a href="#how-it-works">How It Works</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
+  <!-- NAV -->
+  <header class="glass-nav">
+    <div class="container nav-wrap">
+      <a class="logo" href="index.html">AutoSureEstimator</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#tools">Tools</a></li>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="pill">FREE UTILITIES • No sales calls • No personal data</div>
+      <h1>Car Insurance Cost Estimator<br>for Drivers in the United States</h1>
+      <p>
+        Understand your potential auto insurance costs before you shop.
+        We analyze common risk factors to provide neutral, educational price ranges — no sales calls, just data.
+      </p>
+
+      <div class="btn-row">
+        <a class="btn primary" href="#tools">Start Estimating</a>
+        <a class="btn ghost" href="#how">How It Works</a>
+      </div>
+
+      <div class="trust">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
         </div>
-    </header>
-
-    <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="container">
-                <h1>Car Insurance Cost Estimator for<br>Drivers in the United States</h1>
-                <p>Understand your potential auto insurance costs before you shop. We analyze common risk factors to provide neutral, educational price ranges—no sales calls, just data.</p>
-                <div class="btn-group">
-                    <a href="#tools" class="btn btn-primary">Start Estimating</a>
-                    <a href="#how-it-works" class="btn btn-outline">How It Works</a>
-                </div>
-
-                <!-- Trust Box -->
-                <div class="trust-box">
-                    <div class="trust-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                        </svg>
-                    </div>
-                    <div class="trust-content">
-                        <h3>Independent & Informational</h3>
-                        <p>We are not an insurance company, broker, or agent. Estimates are educational ranges based on aggregated market data and risk factors. Real quotes vary by carrier and underwriting.</p>
-                    </div>
-                </div>
-
-                <!-- QUICK NAV INTERNAL LINKS -->
-                <div class="quick-nav">
-                    <h2>Quick Links to Popular Calculators</h2>
-                    <p>Use these shortcuts to explore our most-used tools and state guides. No personal data required.</p>
-                    <div class="quick-nav-grid">
-                        <a href="car-insurance-cost-calculator.html">General Cost Calculator<small>Standard drivers & coverage ranges</small></a>
-                        <a href="dui-insurance-cost-estimator.html">DUI Insurance Impact<small>Typical premium increase by state</small></a>
-                        <a href="sr22-insurance-estimator.html">SR-22 Filing Estimator<small>Cost impact & requirements</small></a>
-                        <a href="teen-driver-insurance-cost.html">Teen Driver Costs<small>Family policy vs individual policy</small></a>
-                        <a href="deductible-vs-premium.html">Deductible vs Premium<small>Compare savings vs risk</small></a>
-                        <a href="state-based-calculators.html">State-Based Averages<small>Browse minimums & averages</small></a>
-
-                        <a href="state-texas.html">Texas Guide<small>Costs & minimum coverage</small></a>
-                        <a href="state-california.html">California Guide<small>Costs & minimum coverage</small></a>
-                        <a href="state-florida.html">Florida Guide<small>Costs & minimum coverage</small></a>
-                        <a href="state-new-york.html">New York Guide<small>Costs & minimum coverage</small></a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- How It Works Section -->
-        <section id="how-it-works" class="section-padding">
-            <div class="container">
-                <h2 class="section-title">How Our Estimates Work</h2>
-                <div class="steps-grid">
-                    <div class="step-card">
-                        <div class="step-number">1</div>
-                        <h3>Select Your Profile</h3>
-                        <p>Choose the tool that matches your situation (standard, high-risk, SR-22, teen drivers, or state averages).</p>
-                    </div>
-                    <div class="step-card">
-                        <div class="step-number">2</div>
-                        <h3>Input Risk Factors</h3>
-                        <p>Enter non-identifying info (state, coverage level, driver profile). No phone, email, or VIN required.</p>
-                    </div>
-                    <div class="step-card">
-                        <div class="step-number">3</div>
-                        <h3>View Estimated Range</h3>
-                        <p>Get a realistic low-high range based on aggregated averages for drivers similar to your inputs.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Tools Section -->
-        <section id="tools" class="section-padding">
-            <div class="container">
-                <h2 class="section-title">Available Insurance Estimation Tools</h2>
-                <div class="tools-grid">
-
-                    <a href="car-insurance-cost-calculator.html" class="tool-card">
-                        <div class="tool-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                            </svg>
-                        </div>
-                        <h3>General Cost Calculator</h3>
-                        <p>A comprehensive estimator for standard drivers looking for liability, collision, and comprehensive coverage ranges.</p>
-                        <span class="tool-link">Calculate Now &rarr;</span>
-                    </a>
-
-                    <a href="sr22-insurance-estimator.html" class="tool-card">
-                        <div class="tool-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                            </svg>
-                        </div>
-                        <h3>SR-22 Filing Estimator</h3>
-                        <p>Calculate the potential cost impact of requiring an SR-22 certificate of financial responsibility.</p>
-                        <span class="tool-link">Estimate SR-22 &rarr;</span>
-                    </a>
-
-                    <a href="dui-insurance-cost-estimator.html" class="tool-card">
-                        <div class="tool-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
-                            </svg>
-                        </div>
-                        <h3>DUI Impact Calculator</h3>
-                        <p>Understand how a Driving Under the Influence conviction typically affects premiums in your state.</p>
-                        <span class="tool-link">Check Impact &rarr;</span>
-                    </a>
-
-                    <a href="teen-driver-insurance-cost.html" class="tool-card">
-                        <div class="tool-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </div>
-                        <h3>Teen Driver Costs</h3>
-                        <p>Estimate the cost of adding a teen driver (ages 16-19) to a family policy versus an individual policy.</p>
-                        <span class="tool-link">View Teen Rates &rarr;</span>
-                    </a>
-
-                    <a href="deductible-vs-premium.html" class="tool-card">
-                        <div class="tool-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
-                            </svg>
-                        </div>
-                        <h3>Deductible vs. Premium</h3>
-                        <p>Analyze how raising your deductible from $500 to $1,000 or higher affects your monthly premium.</p>
-                        <span class="tool-link">Compare Savings &rarr;</span>
-                    </a>
-
-                    <a href="state-based-calculators.html" class="tool-card">
-                        <div class="tool-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </div>
-                        <h3>State-Based Averages</h3>
-                        <p>Explore minimum coverage requirements and average costs specifically for your US state.</p>
-                        <span class="tool-link">Select State &rarr;</span>
-                    </a>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section class="section-padding container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <div class="faq-section">
-
-                <details>
-                    <summary>Are these estimates official insurance quotes?</summary>
-                    <p>No. AutoSureEstimator provides educational cost ranges based on aggregated market data and common risk factors. We are not an insurance carrier, broker, or agent. For a binding quote, you must contact a licensed insurer or agent.</p>
-                </details>
-
-                <details>
-                    <summary>Do I need to enter my personal information?</summary>
-                    <p>No. Our tools are designed to be anonymous. We do not require your name, phone number, email address, VIN, or Social Security number to generate an estimate.</p>
-                </details>
-
-                <details>
-                    <summary>Why is the estimated range so wide?</summary>
-                    <p>Insurance pricing varies by many factors including ZIP code, driving history, vehicle trim, coverage limits, deductibles, credit-based insurance score (where permitted), and carrier underwriting. We show a range to reflect these real-world differences without collecting private data.</p>
-                </details>
-
-                <details>
-                    <summary>Are these tools free to use?</summary>
-                    <p>Yes. All calculators on AutoSureEstimator are free to use for informational purposes.</p>
-                </details>
-
-                <details>
-                    <summary>Do you sell insurance or sell my data?</summary>
-                    <p>No. AutoSureEstimator does not sell insurance products and does not sell personal data. The site is built to help you understand typical price ranges before you shop.</p>
-                </details>
-
-            </div>
-        </section>
-
-        <!-- ADDITIONAL INTERNAL LINKS -->
-        <section class="section-padding">
-            <div class="container">
-                <h2 class="section-title">Explore State Guides (Fast Access)</h2>
-                <p class="text-center" style="max-width: 850px; margin: -18px auto 40px auto;">
-                    These quick links help users and search engines discover important state pages faster.
-                </p>
-
-                <div class="steps-grid" style="text-align:left;">
-                    <div class="step-card" style="text-align:left;">
-                        <h3>Top States</h3>
-                        <ul style="list-style: disc; padding-left: 18px;">
-                            <li><a href="state-texas.html">Texas Car Insurance Cost Guide</a></li>
-                            <li><a href="state-california.html">California Auto Insurance Rates Guide</a></li>
-                            <li><a href="state-florida.html">Florida Car Insurance Estimate Guide</a></li>
-                            <li><a href="state-new-york.html">New York Auto Insurance Cost Guide</a></li>
-                            <li><a href="state-illinois.html">Illinois Auto Insurance Cost Guide</a></li>
-                        </ul>
-                    </div>
-                    <div class="step-card" style="text-align:left;">
-                        <h3>Site Pages</h3>
-                        <ul style="list-style: disc; padding-left: 18px;">
-                            <li><a href="about.html">About AutoSureEstimator</a></li>
-                            <li><a href="contact.html">Contact Support</a></li>
-                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                            <li><a href="terms-of-service.html">Terms of Service</a></li>
-                            <li><a href="state-based-calculators.html">State-Based Calculators Index</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>AutoSureEstimator</h4>
-                    <p style="font-size: 0.9rem; opacity:.85;">Empowering US drivers with transparent, data-driven insurance cost insights.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact Support</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                        <li><a href="terms-of-service.html">Terms of Service</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2024 AutoSureEstimator. All rights reserved. <br>Disclaimer: This website is for informational purposes only and does not provide financial advice.</p>
-            </div>
+        <div>
+          <h3>Independent & Informational</h3>
+          <p>
+            We are not an insurance company, broker, or agent. Estimates are educational ranges based on aggregated market data and risk factors.
+            Real quotes vary by carrier and underwriting.
+          </p>
         </div>
-    </footer>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" class="section">
+      <h2 class="section-title">How Our Estimates Work</h2>
+      <div class="tools-grid">
+        <div class="card">
+          <div class="top"><h3>1) Select your profile</h3><span class="badge">Step 1</span></div>
+          <p>Choose the tool that matches your situation (standard, high-risk, SR-22, teen drivers, or state averages).</p>
+        </div>
+        <div class="card">
+          <div class="top"><h3>2) Input risk factors</h3><span class="badge">Step 2</span></div>
+          <p>Enter non-identifying info (state, coverage level, driver profile). No phone, email, or VIN required.</p>
+        </div>
+        <div class="card">
+          <div class="top"><h3>3) View estimated range</h3><span class="badge">Step 3</span></div>
+          <p>Get a realistic low-high range based on aggregated averages for drivers similar to your inputs.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOOLS -->
+    <section id="tools" class="section">
+      <h2 class="section-title">Available Insurance Estimation Tools</h2>
+
+      <div class="tools-grid">
+
+        <a class="card" href="car-insurance-cost-calculator.html">
+          <div class="top"><h3>General Cost Calculator</h3><span class="badge">CORE</span></div>
+          <p>Estimate typical monthly/annual ranges for standard drivers across common coverages.</p>
+          <span class="link">Launch tool →</span>
+        </a>
+
+        <a class="card" href="sr22-insurance-estimator.html">
+          <div class="top"><h3>SR-22 Filing Estimator</h3><span class="badge">SR-22</span></div>
+          <p>Calculate typical premium increase due to SR-22 requirements by profile and violation type.</p>
+          <span class="link">Launch tool →</span>
+        </a>
+
+        <a class="card" href="dui-insurance-cost-estimator.html">
+          <div class="top"><h3>DUI Impact Calculator</h3><span class="badge">DUI</span></div>
+          <p>See how DUI/DWI convictions can affect insurance pricing and why ranges vary.</p>
+          <span class="link">Launch tool →</span>
+        </a>
+
+        <a class="card" href="teen-driver-insurance-cost.html">
+          <div class="top"><h3>Teen Driver Costs</h3><span class="badge">TEEN</span></div>
+          <p>Compare adding a teen to a family policy vs. separate policy — typical ranges included.</p>
+          <span class="link">Launch tool →</span>
+        </a>
+
+        <a class="card" href="deductible-vs-premium.html">
+          <div class="top"><h3>Deductible vs. Premium</h3><span class="badge">SAVINGS</span></div>
+          <p>Understand how raising deductibles can reduce premiums and when it makes sense.</p>
+          <span class="link">Launch tool →</span>
+        </a>
+
+        <a class="card" href="state-based-calculators.html">
+          <div class="top"><h3>State-Based Averages</h3><span class="badge">STATES</span></div>
+          <p>Browse cost guidance and minimum requirements by state. (More states coming.)</p>
+          <span class="link">Open states →</span>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>AutoSureEstimator</h4>
+          <p class="muted" style="margin:0; max-width:420px;">
+            Empowering US drivers with transparent, data-driven insurance cost insights.
+          </p>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Support</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="copyright">
+        &copy; 2024 AutoSureEstimator. All rights reserved. <br>
+        Disclaimer: This website is for informational purposes only and does not provide financial advice.
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
