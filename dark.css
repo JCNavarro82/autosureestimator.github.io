@@ -1,0 +1,69 @@
+/* dark.css — AutoSure Dark Theme */
+:root{
+  --bg:#050505;
+  --panel:#0f0f10;
+  --panel2:#131315;
+  --border:rgba(255,255,255,.08);
+  --text:#f4f4f5;
+  --muted:#a1a1aa;
+  --muted2:#71717a;
+  --blue:#3b82f6;
+  --blue2:#60a5fa;
+}
+
+html, body{ background:var(--bg) !important; color:var(--text) !important; }
+body{ -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+
+.glass-nav{
+  background: rgba(5, 5, 5, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.dark-panel{
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.dark-panel:hover{
+  background: var(--panel2);
+}
+
+.dark-input,
+.dark-select{
+  width:100%;
+  background: #0b0b0c !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 12px !important;
+  padding: 12px 14px !important;
+  outline: none !important;
+}
+
+.dark-input:focus,
+.dark-select:focus{
+  border-color: rgba(59,130,246,.45) !important;
+  box-shadow: 0 0 0 4px rgba(59,130,246,.12) !important;
+}
+
+.dark-btn{
+  width:100%;
+  background: var(--text) !important;
+  color: #0a0a0a !important;
+  border-radius: 12px !important;
+  padding: 12px 14px !important;
+  font-weight: 600 !important;
+  transition: .2s ease;
+  border: 1px solid rgba(255,255,255,.08) !important;
+}
+
+.dark-btn:hover{
+  background: #e5e7eb !important;
+}
+
+.dark-muted{ color: var(--muted) !important; }
+.dark-muted2{ color: var(--muted2) !important; }
+a{ color: var(--blue2); }
+a:hover{ color: var(--blue); }
