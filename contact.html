@@ -1,251 +1,510 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
-    <!-- SEO Meta Tags -->
-    <title>Contact Us | AutoSureEstimator</title>
-    <meta name="description" content="Contact AutoSureEstimator support. We welcome feedback, corrections, and questions about our insurance estimation tools.">
-    <link rel="canonical" href="https://www.autosureestimator.com/contact.html">
+  <!-- Fonts (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <style>
-        /* --- CSS VARIABLES & RESET (Consistent with Site Theme) --- */
-        :root {
-            --primary-color: #0f172a; /* Navy */
-            --secondary-color: #3b82f6; /* Blue */
-            --accent-color: #10b981; /* Green */
-            --text-main: #334155;
-            --text-light: #64748b;
-            --bg-light: #f8fafc;
-            --bg-white: #ffffff;
-            --border-color: #e2e8f0;
-            --radius: 8px;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-            line-height: 1.6;
-            color: var(--text-main);
-            background-color: var(--bg-white);
-        }
-        a { text-decoration: none; color: inherit; transition: color 0.2s; }
-        a.text-link { color: var(--secondary-color); font-weight: 500; }
-        a.text-link:hover { text-decoration: underline; }
-        ul { list-style: none; }
-        img, svg { display: block; max-width: 100%; }
+  <!-- SEO -->
+  <title>Contact | AutoSureEstimator</title>
+  <meta name="description" content="Contact AutoSureEstimator for feedback, corrections, and questions about our estimation tools. Privacy-first: no sensitive documents required." />
+  <link rel="canonical" href="https://autosureestimator.com/contact.html" />
 
-        /* --- LAYOUT UTILITIES --- */
-        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .section-padding { padding: 60px 0; }
-        .text-center { text-align: center; }
-        .mt-4 { margin-top: 1.5rem; }
-        .mb-4 { margin-bottom: 1.5rem; }
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Contact AutoSureEstimator" />
+  <meta property="og:description" content="Feedback, corrections, and questions about our tools. We improve continuously." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://autosureestimator.com/contact.html" />
+  <meta property="og:site_name" content="AutoSureEstimator" />
 
-        /* --- NAVIGATION --- */
-        header {
-            background-color: var(--bg-white);
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 70px; }
-        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary-color); letter-spacing: -0.5px; }
-        .nav-links { display: flex; gap: 30px; }
-        .nav-links a { font-weight: 500; color: var(--text-main); }
-        .nav-links a:hover { color: var(--secondary-color); }
-        @media (max-width: 768px) { .nav-links { display: none; } }
+  <style>
+    /* =========================================================
+       DARK / TECH MINIMAL STYLE (MATCH tools.html + SR-22 page)
+       ========================================================= */
 
-        /* --- CONTACT PAGE SPECIFIC STYLES --- */
-        
-        .page-header { background-color: var(--bg-light); padding: 80px 0 60px; text-align: center; }
-        .page-header h1 { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 15px; }
-        .page-header p { max-width: 600px; margin: 0 auto; color: var(--text-light); font-size: 1.1rem; }
+    :root{
+      --bg: #050505;
+      --surface: #0f0f10;
+      --surface-2: #131315;
+      --border: rgba(255,255,255,0.08);
+      --border-strong: rgba(255,255,255,0.14);
 
-        .contact-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 50px 0;
-        }
+      --text: #f4f4f5;     /* zinc-100 */
+      --muted: #a1a1aa;    /* zinc-400 */
+      --muted2: #71717a;   /* zinc-500 */
+      --muted3: #52525b;   /* zinc-600 */
 
-        /* Contact Options Grid */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
+      --blue: #3b82f6;     /* blue-500 */
+      --blue2: #2563eb;    /* blue-600 */
+      --amber: #f59e0b;    /* amber-500 */
 
-        .contact-card {
-            background: #fff;
-            border: 1px solid var(--border-color);
-            padding: 40px 30px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+      --radius: 16px;
+      --shadow: 0 20px 40px -10px rgba(0,0,0,.55);
+      --max: 1200px;
+    }
 
-        .contact-icon {
-            width: 60px;
-            height: 60px;
-            background-color: #eff6ff;
-            color: var(--secondary-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html{ scroll-behavior:smooth; }
+    body{
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a{ text-decoration:none; color:inherit; transition:color .2s, opacity .2s; }
+    ul{ list-style:none; }
+    .container{ max-width: var(--max); margin:0 auto; padding: 0 20px; }
 
-        .contact-card h3 {
-            font-size: 1.25rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
+    /* Noise layer */
+    .noise-bg{
+      position: fixed;
+      inset: 0;
+      opacity: 0.03;
+      pointer-events: none;
+      z-index: 5;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
 
-        .email-display {
-            font-family: monospace;
-            background-color: var(--bg-light);
-            padding: 10px 15px;
-            border-radius: 4px;
-            color: var(--text-main);
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            border: 1px solid var(--border-color);
-        }
+    /* Glass nav */
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(5,5,5,0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-container{
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      height: 64px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+    }
+    .brand-mark{
+      width: 26px; height: 26px;
+      background: var(--blue2);
+      border-radius: 8px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow: 0 0 12px rgba(37,99,235,.45);
+    }
+    .brand-mark::after{
+      content:"";
+      width: 12px; height: 12px;
+      background:#fff;
+      border-radius: 4px;
+      display:block;
+    }
+    .logo{
+      font-weight: 700;
+      letter-spacing: -0.2px;
+      font-size: 14px;
+      color: var(--text);
+    }
+    .nav-links{
+      display:flex;
+      gap: 28px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted2);
+    }
+    .nav-links a:hover{ color: #93c5fd; }
+    .nav-links a.active{ color: var(--text); }
+    @media (max-width: 768px){
+      .nav-links{ display:none; }
+    }
+    .mini{
+      font-size: 12px;
+      color: var(--muted2);
+      font-weight: 600;
+    }
+    .mini:hover{ color:#93c5fd; }
 
-        .response-note {
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
+    /* Page header */
+    .page-header{
+      padding: 76px 0 22px;
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(30,58,138,0.35);
+      background: rgba(30,58,138,0.12);
+      margin-bottom: 16px;
+    }
+    .pill-dot{
+      width: 8px; height: 8px;
+      border-radius: 999px;
+      background: var(--blue);
+      animation: pulse 1.4s infinite;
+    }
+    .pill span{
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #93c5fd;
+    }
+    @keyframes pulse{
+      0%,100%{ opacity: .6; transform: scale(1); }
+      50%{ opacity: 1; transform: scale(1.25); }
+    }
+    .page-header h1{
+      font-size: clamp(34px, 4.5vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 14px;
+    }
+    .gradient-title{
+      color: transparent;
+      background: linear-gradient(90deg, #60a5fa, #3b82f6, #6366f1);
+      -webkit-background-clip: text;
+      background-clip: text;
+      filter: drop-shadow(0 1px 0 rgba(255,255,255,0.06));
+    }
+    .subtitle{
+      max-width: 860px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 16px;
+      font-weight: 400;
+    }
 
-        /* Correction Section */
-        .correction-section {
-            background-color: var(--bg-light);
-            padding: 40px;
-            border-radius: var(--radius);
-            border-left: 5px solid var(--secondary-color);
-        }
+    /* Content */
+    .section{
+      position: relative;
+      z-index: 10;
+      padding: 22px 0 10px;
+    }
 
-        .correction-section h2 {
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+      align-items: start;
+      margin-top: 18px;
+    }
 
-        /* Footer */
-        footer { background-color: var(--primary-color); color: #cbd5e1; padding: 60px 0 30px; margin-top: 60px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
-        .footer-col h4 { color: white; margin-bottom: 20px; }
-        .footer-col a:hover { color: white; }
-        .copyright { text-align: center; padding-top: 30px; border-top: 1px solid #334155; font-size: 0.9rem; }
-    </style>
+    .card{
+      grid-column: span 12;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 18px;
+      position: relative;
+      overflow: hidden;
+      transition: transform .35s cubic-bezier(.16,1,.3,1), border-color .35s, background .35s, box-shadow .35s;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      border-color: rgba(59,130,246,0.28);
+      box-shadow: var(--shadow);
+      background: var(--surface-2);
+    }
+
+    @media (min-width: 900px){
+      .half{ grid-column: span 6; }
+    }
+
+    .card h2{
+      font-size: 18px;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+      color: #e4e4e7;
+    }
+    .card p, .card li{
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .contact-line{
+      margin-top: 10px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(9,9,11,0.35);
+      border: 1px solid rgba(255,255,255,0.10);
+      display:flex;
+      gap: 10px;
+      align-items:center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .mono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      color: #e4e4e7;
+      font-size: 13px;
+      word-break: break-word;
+    }
+    .copyhint{
+      color: var(--muted3);
+      font-size: 12px;
+    }
+
+    .note{
+      margin-top: 14px;
+      background: rgba(15,15,16,0.75);
+      border: 1px solid var(--border);
+      border-left: 4px solid rgba(245,158,11,0.9);
+      border-radius: 14px;
+      padding: 14px 16px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .note strong{ color: #fbbf24; }
+
+    .bullets{
+      margin-top: 10px;
+      padding-left: 18px;
+      list-style: disc;
+    }
+    .bullets li{ margin: 8px 0; }
+
+    /* Buttons */
+    .cta{
+      margin-top: 14px;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn{
+      display:inline-block;
+      padding: 10px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.10);
+      font-weight: 700;
+      font-size: 13px;
+      transition: transform .2s, background .2s, color .2s, border-color .2s;
+    }
+    .btn-primary{
+      background: #f4f4f5;
+      color: #09090b;
+    }
+    .btn-primary:hover{
+      background: rgba(219,234,254,1);
+      color: #1d4ed8;
+      border-color: rgba(59,130,246,0.25);
+    }
+    .btn-ghost{
+      background: rgba(9,9,11,0.25);
+      color: var(--text);
+    }
+    .btn-ghost:hover{
+      border-color: rgba(59,130,246,0.25);
+      color: #93c5fd;
+    }
+
+    /* Footer */
+    footer{
+      margin-top: 44px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 28px 0 30px;
+      color: var(--muted2);
+      position: relative;
+      z-index: 10;
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+    .footer-col h4{
+      color: #e4e4e7;
+      margin-bottom: 10px;
+      font-size: 13px;
+    }
+    .footer-col a:hover{ color: #93c5fd; }
+    .small{
+      font-size: 12px;
+      color: var(--muted3);
+      line-height: 1.55;
+    }
+    .copyright{
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      font-size: 12px;
+      text-align:center;
+      color: var(--muted3);
+    }
+  </style>
 </head>
+
 <body>
+  <div class="noise-bg"></div>
 
-    <!-- Navigation -->
-    <header>
-        <div class="container nav-container">
-            <a href="index.html" class="logo">AutoSureEstimator</a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#tools">Tools</a></li>
-                    <li><a href="index.html#how-it-works">How It Works</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html" style="color: var(--secondary-color);">Contact</a></li>
-                </ul>
-            </nav>
+  <!-- NAV -->
+  <header>
+    <div class="container nav-container">
+      <a href="tools.html" class="brand" aria-label="AutoSureEstimator Home">
+        <div class="brand-mark"></div>
+        <span class="logo">AutoSure</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="tools.html">Home</a></li>
+          <li><a href="tools.html">Tools</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a class="active" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a href="tools.html" class="mini">Resources</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HEADER -->
+    <section class="page-header">
+      <div class="container">
+        <div class="pill">
+          <span class="pill-dot"></span>
+          <span>Contact</span>
         </div>
-    </header>
 
-    <main>
-        <!-- Page Header -->
-        <section class="page-header">
-            <div class="container">
-                <h1>Contact Us</h1>
-                <p>We are dedicated to improving our tools. Whether you have a question about our methodology or general feedback, we'd like to hear from you.</p>
+        <h1>
+          <span class="gradient-title">Contact</span>
+          <span style="color:#a1a1aa;"> AutoSureEstimator.</span>
+        </h1>
+
+        <p class="subtitle">
+          Feedback, corrections, and questions help us improve the estimators. Please don’t send sensitive documents (IDs, policies, tickets).
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+
+        <div class="grid">
+
+          <!-- Email -->
+          <div class="card half">
+            <h2>Email</h2>
+            <p>
+              For general inquiries and corrections, email us:
+            </p>
+
+            <div class="contact-line" style="margin-top:12px;">
+              <div class="mono">
+                <a href="mailto:hello@quickai.agency" style="color:#93c5fd;">hello@quickai.agency</a>
+              </div>
+              <div class="copyhint">Typical reply: 1–3 business days</div>
             </div>
-        </section>
 
-        <!-- Content -->
-        <section class="container">
-            <div class="contact-content">
-                
-                <div class="contact-grid">
-                    <!-- Email Card -->
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                            </svg>
-                        </div>
-                        <h3>Email Support</h3>
-                        <p style="margin-bottom: 15px;">For general inquiries, please email us directly:</p>
-                        
-                        <div class="email-display">
-                            support [at] autosureestimator [dot] com
-                        </div>
-                        
-                        <p class="response-note">
-                            We typically respond to inquiries within 3–5 business days. <br>
-                            <em>(Please do not send sensitive documents via email.)</em>
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Report a Correction -->
-                <div class="correction-section">
-                    <h2>Report a Correction</h2>
-                    <p>Our data is based on continuously changing state regulations and market averages. If you notice a specific error—such as an outdated minimum coverage requirement for a specific state or a broken calculator function—please let us know.</p>
-                    <p><strong>To help us fix it faster, please include:</strong></p>
-                    <ul style="list-style: disc; padding-left: 20px; margin-top: 10px; color: var(--text-main);">
-                        <li>The URL of the page containing the error.</li>
-                        <li>The specific value or text that is incorrect.</li>
-                        <li>A source (like a DMV link) for the correct information, if available.</li>
-                    </ul>
-                </div>
-
+            <div class="note" style="border-left-color: rgba(59,130,246,0.85); margin-top:14px;">
+              <strong style="color:#93c5fd;">Tip:</strong> Include the page URL and a source link if you’re reporting a state requirement change.
             </div>
-        </section>
-    </main>
+          </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>AutoSureEstimator</h4>
-                    <p style="font-size: 0.9rem; color: #94a3b8;">Empowering US drivers with transparent, data-driven insurance cost insights.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact Support</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                        <li><a href="terms-of-service.html">Terms of Service</a></li>
-                    </ul>
-                </div>
+          <!-- Phone / WhatsApp -->
+          <div class="card half">
+            <h2>Phone / WhatsApp</h2>
+            <p>
+              For quick questions, reach us here:
+            </p>
+
+            <div class="contact-line" style="margin-top:12px;">
+              <div class="mono">
+                <a href="tel:+34677304620" style="color:#93c5fd;">+34 677 304 620</a>
+              </div>
+              <div class="copyhint">Calls / WhatsApp</div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2024 AutoSureEstimator. All rights reserved. <br>Disclaimer: This website is for informational purposes only and does not provide financial advice.</p>
+
+            <div class="note" style="margin-top:14px;">
+              <strong>Privacy note:</strong> Please don’t share personal identifiers. If you want a real quote, contact a licensed agent or your insurer.
             </div>
+          </div>
+
+          <!-- Report a Correction -->
+          <div class="card">
+            <h2>Report a correction</h2>
+            <p>
+              Regulations and market averages change. If you spot an error (state minimum limits, SR-22 duration, broken tool),
+              send us the details and we’ll fix it.
+            </p>
+
+            <ul class="bullets">
+              <li>The URL of the page with the issue</li>
+              <li>The exact number/text that’s wrong</li>
+              <li>A source link (DMV/state site, regulator, or reputable reference), if available</li>
+            </ul>
+
+            <div class="cta">
+              <a class="btn btn-primary" href="mailto:hello@quickai.agency?subject=AutoSureEstimator%20Correction%20Report">Email a correction report</a>
+              <a class="btn btn-ghost" href="tools.html">Back to tools</a>
+            </div>
+          </div>
+
         </div>
-    </footer>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>AutoSureEstimator</h4>
+          <p class="small">
+            Independent, privacy-first insurance estimators for educational purposes.
+            No quotes. No lead selling. Just clarity.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul class="small">
+            <li><a href="tools.html">Tools</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul class="small">
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="small">
+            <li><a href="mailto:hello@quickai.agency">hello@quickai.agency</a></li>
+            <li><a href="tel:+34677304620">+34 677 304 620</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="copyright">
+        © 2026 AutoSureEstimator. All rights reserved. Disclaimer: Informational estimates only — not financial or legal advice.
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
