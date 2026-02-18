@@ -963,6 +963,32 @@
             }
         }
     </script>
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const manualToggle = document.getElementById("manualMode");
+  const manualWrap = document.getElementById("manualWrap");
+  const premiumInput = document.getElementById("currentPremium");
+
+  if (!manualToggle || !manualWrap || !premiumInput) return;
+
+  function applyManualState() {
+    const isOn = manualToggle.checked;
+
+    manualWrap.style.display = isOn ? "block" : "none";
+    premiumInput.disabled = !isOn;
+
+    // Si quieres obligar a poner el número cuando está ON:
+    premiumInput.required = isOn;
+
+    // Si lo apagas, borra el valor para evitar cálculos raros
+    if (!isOn) premiumInput.value = "";
+  }
+
+  manualToggle.addEventListener("change", applyManualState);
+  applyManualState();
+});
+</script>
+
 </body>
 
 </html>
