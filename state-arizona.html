@@ -1,43 +1,193 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Arizona Car Insurance | AutoSureEstimator</title>
   <meta name="description" content="Arizona car insurance overview page. Minimum requirements and costs pending verification.">
   <link rel="canonical" href="https://autosureestimator.com/state-arizona.html">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fonts + Dark Theme -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dark.css">
+
   <style>
-    body{font-family:system-ui;margin:0;color:#334155}
-    header{border-bottom:1px solid #e2e8f0;padding:20px}
-    .logo{font-weight:800;font-size:1.4rem;color:#0f172a}
-    .container{max-width:1000px;margin:auto;padding:40px 20px}
-    h1{color:#0f172a}
-    .box{border:1px solid #e2e8f0;border-radius:8px;padding:20px;margin-top:20px}
-    .note{background:#fffbeb;border:1px solid #fcd34d;padding:15px;border-radius:8px;color:#92400e}
-    .btn{display:inline-block;margin-top:20px;padding:10px 14px;background:#3b82f6;color:white;border-radius:8px;font-weight:700;text-decoration:none}
+    body { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    *{ box-sizing:border-box; }
+    a{ text-decoration:none; }
+    ul{ list-style:none; padding:0; margin:0; }
+
+    .container{ width:100%; max-width:1100px; margin:0 auto; padding:0 20px; }
+
+    /* NAV */
+    header{ position: sticky; top:0; z-index:100; }
+    .nav-wrap{
+      height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 0 20px;
+    }
+    .logo{
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--text) !important;
+      font-size: 1.15rem;
+    }
+    .nav-links{
+      display:flex;
+      gap: 18px;
+      align-items:center;
+    }
+    .nav-links a{
+      color: var(--muted) !important;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 8px 10px;
+      border-radius: 10px;
+      transition: .15s ease;
+    }
+    .nav-links a:hover{
+      color: var(--text) !important;
+      background: rgba(255,255,255,.06);
+    }
+    @media (max-width: 860px){ .nav-links{ display:none; } }
+
+    /* PAGE */
+    .page{
+      padding: 48px 0 70px;
+    }
+    .page-title{
+      margin: 0 0 8px;
+      color: var(--text);
+      font-weight: 900;
+      letter-spacing: -0.6px;
+      font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+      line-height: 1.15;
+    }
+    .subtitle{
+      margin: 0 0 18px;
+      color: var(--muted);
+      max-width: 820px;
+      line-height: 1.6;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 18px;
+    }
+    @media (min-width: 900px){
+      .grid{ grid-template-columns: 1fr 1fr; }
+    }
+
+    .card{
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.03);
+    }
+    .card h2{
+      margin: 0 0 10px;
+      color: var(--text);
+      font-weight: 900;
+      letter-spacing: -0.4px;
+      font-size: 1.1rem;
+    }
+
+    .note{
+      padding: 14px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(245, 158, 11, .25);
+      background: rgba(245, 158, 11, .10);
+      color: #fde68a;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .actions{
+      margin-top: 18px;
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      font-weight: 800;
+      transition: .15s ease;
+    }
+    .btn.primary{
+      background: var(--text);
+      color: #0a0a0a !important;
+    }
+    .btn.primary:hover{ background:#e5e7eb; }
+    .btn.ghost{
+      background: rgba(255,255,255,.03);
+      color: var(--text) !important;
+    }
+    .btn.ghost:hover{ background: rgba(255,255,255,.06); }
+
+    footer{
+      border-top: 1px solid var(--border);
+      padding: 22px 0;
+      color: var(--muted2);
+      text-align:center;
+      background: transparent;
+    }
   </style>
 </head>
 
 <body>
-<header><a href="index.html" class="logo">AutoSureEstimator</a></header>
 
-<div class="container">
-  <h1>Arizona Car Insurance</h1>
-  <p>Arizona is a tort state with standard liability-based insurance.</p>
+  <!-- NAV -->
+  <header class="glass-nav">
+    <div class="container nav-wrap">
+      <a href="index.html" class="logo">AutoSureEstimator</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="tools.html">Tools</a></li>
+          <li><a href="state-based-calculators.html">States</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-  <div class="box">
-    <h2>Minimum liability</h2>
-    <div class="note">Pending verification of Arizona minimum liability limits.</div>
-  </div>
+  <main class="container page">
+    <h1 class="page-title">Arizona Car Insurance</h1>
+    <p class="subtitle">Arizona is a tort state with standard liability-based insurance.</p>
 
-  <div class="box">
-    <h2>Cost overview</h2>
-    <div class="note">Arizona insurance cost averages pending verified data.</div>
-  </div>
+    <div class="grid">
+      <section class="card">
+        <h2>Minimum liability</h2>
+        <div class="note">Pending verification of Arizona minimum liability limits.</div>
+      </section>
 
-  <a class="btn" href="state-based-calculators.html">← Back to all states</a>
-</div>
+      <section class="card">
+        <h2>Cost overview</h2>
+        <div class="note">Arizona insurance cost averages pending verified data.</div>
+      </section>
+    </div>
+
+    <div class="actions">
+      <a class="btn ghost" href="state-based-calculators.html">← Back to all states</a>
+      <a class="btn primary" href="tools.html">Browse tools</a>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2024 AutoSureEstimator. Informational use only.
+  </footer>
+
 </body>
 </html>
-
-
