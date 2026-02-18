@@ -475,6 +475,98 @@
                 align-items: center;
             }
         }
+        /* =========================
+   FORCE DARK THEME (HOME)
+   Paste at END of index.html <style>
+   ========================= */
+
+:root{
+  --bg: #050505;
+  --surface: #0f0f10;
+  --surface-2: #131315;
+  --border: rgba(255,255,255,0.08);
+  --text: #f4f4f5;
+  --muted: #a1a1aa;
+  --muted2: #71717a;
+  --blue: #3b82f6;
+  --blue2: #2563eb;
+}
+
+html, body{
+  background: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+/* Make header/nav glass + dark */
+header, .header, .navbar, nav{
+  background: rgba(5,5,5,0.7) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border) !important;
+}
+
+/* Generic sections */
+section, .section, main{
+  background: transparent !important;
+}
+
+/* Cards / boxes (home has many white blocks) */
+.card, .box, .panel, .feature-card, .tool-card, .quick-links-card, .calculator-card,
+div[style*="background-color: #fff"], div[style*="background: #fff"], div[style*="background: white"]{
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text) !important;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6{
+  color: #e4e4e7 !important;
+}
+
+/* Paragraphs + secondary text */
+p, li, span, small{
+  color: var(--muted) !important;
+}
+
+/* Links hover */
+a:hover{ color: #93c5fd !important; }
+
+/* Buttons (make primary look like your new style) */
+button, .btn, .button{
+  border-radius: 14px !important;
+}
+
+.btn-primary, .primary, button.primary{
+  background: #f4f4f5 !important;
+  color: #09090b !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+}
+.btn-primary:hover, .primary:hover, button.primary:hover{
+  background: #dbeafe !important;
+  color: #1d4ed8 !important;
+  border-color: rgba(59,130,246,0.25) !important;
+}
+
+/* Inputs */
+input, select, textarea{
+  background: rgba(9,9,11,0.7) !important;
+  color: var(--text) !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+  border-radius: 14px !important;
+}
+input:focus, select:focus, textarea:focus{
+  outline: none !important;
+  border-color: rgba(59,130,246,0.45) !important;
+  box-shadow: 0 0 0 4px rgba(59,130,246,0.10) !important;
+}
+
+/* Footer */
+footer{
+  background: transparent !important;
+  border-top: 1px solid rgba(255,255,255,0.08) !important;
+  color: var(--muted2) !important;
+}
+
     </style>
 
     <!-- FAQ Schema (JSON-LD for Google) -->
